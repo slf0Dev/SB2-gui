@@ -310,7 +310,6 @@ function Library:CreateMain()
 			label.TextColor3 = Color3.fromRGB(255, 255,255)
 			label.TextSize = 17.000
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
-		end
 		function Library:CreateSwitch(Text,callback)
 
 			local TextLabel = Instance.new("TextLabel")
@@ -413,7 +412,6 @@ function Library:CreateMain()
 					end
 				end
 			end)
-		end
 
 		function Library:CreateSlider(Text,min,max,suffix,callback)
 
@@ -565,7 +563,6 @@ function Library:CreateMain()
 					end
 				end)
 			end)
-		end
 		function Library:CreateButton(Text,Aligment,callback)
 
 local button = Instance.new("TextButton")
@@ -619,6 +616,9 @@ callback(button)
 				wait()
 			end
 end)
+end
+end
+end
 end
 	end
 end
