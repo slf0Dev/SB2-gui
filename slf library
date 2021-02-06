@@ -1,3 +1,4 @@
+
 local KeyHide = "LeftAlt"
 
 local mainlib = {} ; local Poo = {} ; local Elements = {} ;
@@ -619,7 +620,42 @@ callback(button)
 				wait()
 			end
 end)
+	return Elements;
 end
 	end
 
 end
+
+
+
+
+local main = mainlib:CreateMain()
+
+local farmFolder = Poo:CreateTab("Main",50)
+local farm = Elements:CreateSwitch("something",function(state)
+	if state then
+		print(state)
+	else
+		print(state)
+	end
+end)
+
+local farmFolder = Poo:CreateTab("Misc",50)
+local farm = Elements:CreateSwitch("lol",function(state)
+	if state then
+		print(state)
+	else
+		print(state)
+	end
+end)
+local slider = Elements:CreateSlider("WalkSpeed",16,100,"studs",function(value)
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+end)
+
+local btn = Elements:CreateButton("button","Center",function(value)
+ print'pressed'
+end)
+
+local Left = Elements:CreateLabel("Left","Left")
+local Center = Elements:CreateLabel("Center","Center")
+local Right = Elements:CreateLabel("Right","Right")
