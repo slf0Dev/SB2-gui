@@ -619,8 +619,8 @@ callback(button)
 				wait()
 			end
 end)
-	return Elements;
 end
 	end
 end
+	return Elements;
 return mainlib;
