@@ -297,6 +297,8 @@ function mainlib:CreateMain()
 			end
 			Container.Visible = true
 		end)
+		return Poo;
+		end
 		function Elements:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
 
