@@ -120,11 +120,11 @@ function mainlib:CreateMain()
 			wait(.1)
 			list:TweenPosition(UDim2.new(0,0,0,0),"Out","Quad",0.1)
 		else if Toggle == false then
-				list:TweenPosition(UDim2.new(0,-180,0,0),"Out","Quad",0.1)
-				wait(.1)
+						list:TweenPosition(UDim2.new(0,-180,0,0),"Out","Quad",0.1)
+		wait(.1)
 				list:TweenSize(UDim2.new(0,0,1,0),"Out","Quad",0.1)
 				tabs:TweenSize(UDim2.new(0,5,1,0),"Out","Quad",0.1)
-
+			
 			end
 		end
 	end
@@ -173,6 +173,7 @@ function mainlib:CreateMain()
 			end
 		end
 	end)
+
 	function Poo:CreateTab(Text,canvas)
 		local tab = Instance.new("TextButton")
 		local ImageLabel = Instance.new("ImageLabel")
@@ -250,7 +251,7 @@ function mainlib:CreateMain()
 		Container.Size = UDim2.new(0, 414, 0, 368)
 		Container.Visible = false
 		Container.CanvasSize = UDim2.new(0, 0, 0, canvas * 10)
-		Container.ScrollBarThickness = 4
+        Container.ScrollBarThickness = 4
 
 		UIListLayout_2.Parent = Container
 		UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -296,8 +297,6 @@ function mainlib:CreateMain()
 			end
 			Container.Visible = true
 		end)
-		return Poo;
-		end
 		function Elements:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
 
@@ -311,300 +310,317 @@ function mainlib:CreateMain()
 			label.TextColor3 = Color3.fromRGB(255, 255,255)
 			label.TextSize = 17.000
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
-			function Elements:CreateSwitch(Text,callback)
+		end
+		function Elements:CreateSwitch(Text,callback)
 
-				local TextLabel = Instance.new("TextLabel")
-				local switch = Instance.new("TextButton")
-				local border = Instance.new("ImageLabel")
-				local inner = Instance.new("ImageLabel")
-				local circle = Instance.new("ImageLabel")
+			local TextLabel = Instance.new("TextLabel")
+			local switch = Instance.new("TextButton")
+			local border = Instance.new("ImageLabel")
+			local inner = Instance.new("ImageLabel")
+			local circle = Instance.new("ImageLabel")
 
-				--Properties:
+			--Properties:
 
-				TextLabel.Parent = Container
-				TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				TextLabel.BackgroundTransparency = 1.000
-				TextLabel.BorderSizePixel = 0
-				TextLabel.Position = UDim2.new(0.155145928, 0, 0.416666657, 0)
-				TextLabel.Size = UDim2.new(1, -40, 0, 34)
-				TextLabel.Font = Enum.Font.Gotham
-				TextLabel.Text = Text
-				TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-				TextLabel.TextSize = 17.000
-				TextLabel.TextWrapped = true
-				TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+			TextLabel.Parent = Container
+			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabel.BackgroundTransparency = 1.000
+			TextLabel.BorderSizePixel = 0
+			TextLabel.Position = UDim2.new(0.155145928, 0, 0.416666657, 0)
+			TextLabel.Size = UDim2.new(1, -40, 0, 34)
+			TextLabel.Font = Enum.Font.Gotham
+			TextLabel.Text = Text
+			TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabel.TextSize = 17.000
+			TextLabel.TextWrapped = true
+			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
-				switch.Name = "switch"
-				switch.Parent = TextLabel
-				switch.AnchorPoint = Vector2.new(0.5, 0.5)
-				switch.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				switch.BackgroundTransparency = 1.000
-				switch.BorderSizePixel = 0
-				switch.Position = UDim2.new(0.899999976, 0, 0.5, 0)
-				switch.Size = UDim2.new(0, 55, 0, 24)
-				switch.AutoButtonColor = false
-				switch.Font = Enum.Font.SourceSans
-				switch.TextColor3 = Color3.fromRGB(0, 0, 0)
-				switch.TextSize = 14.000
+			switch.Name = "switch"
+			switch.Parent = TextLabel
+			switch.AnchorPoint = Vector2.new(0.5, 0.5)
+			switch.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			switch.BackgroundTransparency = 1.000
+			switch.BorderSizePixel = 0
+			switch.Position = UDim2.new(0.899999976, 0, 0.5, 0)
+			switch.Size = UDim2.new(0, 55, 0, 24)
+			switch.AutoButtonColor = false
+			switch.Font = Enum.Font.SourceSans
+			switch.TextColor3 = Color3.fromRGB(0, 0, 0)
+			switch.TextSize = 14.000
 
-				border.Name = "border"
-				border.Parent = switch
-				border.Active = true
-				border.AnchorPoint = Vector2.new(0.5, 0.5)
-				border.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				border.BackgroundTransparency = 1.000
-				border.Position = UDim2.new(0.5, 0, 0.5, 0)
-				border.Selectable = true
-				border.Size = UDim2.new(1, 0, 1, 0)
-				border.Image = "rbxassetid://3570695787"
-				border.ImageColor3 = Color3.fromRGB(167, 167, 167)
-				border.ScaleType = Enum.ScaleType.Slice
-				border.SliceCenter = Rect.new(100, 100, 100, 100)
+			border.Name = "border"
+			border.Parent = switch
+			border.Active = true
+			border.AnchorPoint = Vector2.new(0.5, 0.5)
+			border.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			border.BackgroundTransparency = 1.000
+			border.Position = UDim2.new(0.5, 0, 0.5, 0)
+			border.Selectable = true
+			border.Size = UDim2.new(1, 0, 1, 0)
+			border.Image = "rbxassetid://3570695787"
+			border.ImageColor3 = Color3.fromRGB(167, 167, 167)
+			border.ScaleType = Enum.ScaleType.Slice
+			border.SliceCenter = Rect.new(100, 100, 100, 100)
 
-				inner.Name = "inner"
-				inner.Parent = switch
-				inner.Active = true
-				inner.AnchorPoint = Vector2.new(0.5, 0.5)
-				inner.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				inner.BackgroundTransparency = 1.000
-				inner.Position = UDim2.new(0.5, 0, 0.5, 0)
-				inner.Selectable = true
-				inner.Size = UDim2.new(0.959999979, 0, 0, 22)
-				inner.ZIndex = 2
-				inner.Image = "rbxassetid://3570695787"
-				inner.ImageColor3 = Color3.fromRGB(27, 27, 27)
-				inner.ScaleType = Enum.ScaleType.Slice
-				inner.SliceCenter = Rect.new(100, 100, 100, 100)
+			inner.Name = "inner"
+			inner.Parent = switch
+			inner.Active = true
+			inner.AnchorPoint = Vector2.new(0.5, 0.5)
+			inner.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			inner.BackgroundTransparency = 1.000
+			inner.Position = UDim2.new(0.5, 0, 0.5, 0)
+			inner.Selectable = true
+			inner.Size = UDim2.new(0.959999979, 0, 0, 22)
+			inner.ZIndex = 2
+			inner.Image = "rbxassetid://3570695787"
+			inner.ImageColor3 = Color3.fromRGB(27, 27, 27)
+			inner.ScaleType = Enum.ScaleType.Slice
+			inner.SliceCenter = Rect.new(100, 100, 100, 100)
 
-				circle.Name = "circle"
-				circle.Parent = switch
-				circle.Active = true
-				circle.AnchorPoint = Vector2.new(0.5, 0.5)
-				circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				circle.BackgroundTransparency = 1.000
-				circle.Position = UDim2.new(0.22, 0, 0.5, 0)
-				circle.Selectable = true
-				circle.Size = UDim2.new(0, 18, 0, 18)
-				circle.ZIndex = 2
-				circle.Image = "rbxassetid://3570695787"
-				circle.ImageColor3 = Color3.fromRGB(0, 85, 255)
-				circle.ScaleType = Enum.ScaleType.Slice
-				circle.SliceCenter = Rect.new(100, 100, 100, 100)
-
-
-				local toggle = false
+			circle.Name = "circle"
+			circle.Parent = switch
+			circle.Active = true
+			circle.AnchorPoint = Vector2.new(0.5, 0.5)
+			circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			circle.BackgroundTransparency = 1.000
+			circle.Position = UDim2.new(0.22, 0, 0.5, 0)
+			circle.Selectable = true
+			circle.Size = UDim2.new(0, 18, 0, 18)
+			circle.ZIndex = 2
+			circle.Image = "rbxassetid://3570695787"
+			circle.ImageColor3 = Color3.fromRGB(0, 85, 255)
+			circle.ScaleType = Enum.ScaleType.Slice
+			circle.SliceCenter = Rect.new(100, 100, 100, 100)
 
 
-				switch.MouseButton1Click:Connect(function()
-					if not toggle then
-						toggle = true
-						circle:TweenPosition(UDim2.new(0.78,0,0.5,0),"Out","Quint",0.2)
-						color(inner,0,85,255,0.2)
-						color(border,0,85,255,0.2)
-						color(circle,255,255,255,0.2)
+			local toggle = false
+
+
+			switch.MouseButton1Click:Connect(function()
+				if not toggle then
+					toggle = true
+					circle:TweenPosition(UDim2.new(0.78,0,0.5,0),"Out","Quint",0.2)
+					color(inner,0,85,255,0.2)
+					color(border,0,85,255,0.2)
+					color(circle,255,255,255,0.2)
+					callback(toggle)
+				else if toggle then
+						toggle = false
+						circle:TweenPosition(UDim2.new(0.22,0,0.5,0),"Out","Quint",0.2)
+						color(inner,27,27,27,0.2)
+						color(border,255,255,255,0.2)
+						color(circle,0,85,255,0.2)
 						callback(toggle)
-					else if toggle then
-							toggle = false
-							circle:TweenPosition(UDim2.new(0.22,0,0.5,0),"Out","Quint",0.2)
-							color(inner,27,27,27,0.2)
-							color(border,255,255,255,0.2)
-							color(circle,0,85,255,0.2)
-							callback(toggle)
-						end
+					end
+				end
+			end)
+		end
+
+		function Elements:CreateSlider(Text,min,max,suffix,callback)
+
+			-- Instances:
+
+			local walkspeed = Instance.new("Frame")
+			local SliderNamer = Instance.new("TextLabel")
+			local ActualSliding = Instance.new("ImageLabel")
+			local use = Instance.new("ImageButton")
+			local progress = Instance.new("ImageLabel")
+			local Frame = Instance.new("ImageLabel")
+			local SliderValuer = Instance.new("TextLabel")
+
+			--Properties:
+			use.Name = "use"
+			use.Parent = walkspeed
+			use.AnchorPoint = Vector2.new(0.5, 0.5)
+			use.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			use.BackgroundTransparency = 1.000
+			use.BorderSizePixel = 0
+			use.Position = UDim2.new(0.5, 0, 0.5, 15)
+			use.Size = UDim2.new(0, 374, 0, 10)
+			use.ZIndex = 1
+			use.Image = ""
+			use.ImageColor3 = Color3.fromRGB(94, 94, 94)
+			use.ImageTransparency = 1
+			use.ScaleType = Enum.ScaleType.Slice
+			use.SliceCenter = Rect.new(100, 100, 100, 100)
+			use.SliceScale = 0.040
+			
+			walkspeed.Name = "walkspeed"
+			walkspeed.Parent = Container
+			walkspeed.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+			walkspeed.BackgroundTransparency = 1.000
+			walkspeed.BorderColor3 = Color3.fromRGB(122, 122, 122)
+			walkspeed.Position = UDim2.new(0.025390625, 0, 0.461847395, 0)
+			walkspeed.Size = UDim2.new(0, 374, 0, 52)
+			walkspeed.ZIndex = 2
+
+			SliderNamer.Name = "SliderNamer"
+			SliderNamer.Parent = walkspeed
+			SliderNamer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SliderNamer.BackgroundTransparency = 1.000
+			SliderNamer.Position = UDim2.new(0, 0, -0.255000174, 15)
+			SliderNamer.Size = UDim2.new(0, 161, 0, 20)
+			SliderNamer.ZIndex = 1
+			SliderNamer.Font = Enum.Font.Gotham
+			SliderNamer.Text = Text
+			SliderNamer.TextColor3 = Color3.fromRGB(255, 255, 255)
+			SliderNamer.TextSize = 16.000
+			SliderNamer.TextXAlignment = Enum.TextXAlignment.Left
+
+			ActualSliding.Name = "ActualSliding"
+			ActualSliding.Parent = walkspeed
+			ActualSliding.AnchorPoint = Vector2.new(0.5, 0.5)
+			ActualSliding.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ActualSliding.BackgroundTransparency = 1.000
+			ActualSliding.BorderSizePixel = 0
+			ActualSliding.Position = UDim2.new(0.5, 0, 0.5, 15)
+			ActualSliding.Size = UDim2.new(0, 374, 0, 2)
+			ActualSliding.ZIndex = 1
+			ActualSliding.Image = "rbxassetid://3570695787"
+			ActualSliding.ImageColor3 = Color3.fromRGB(94, 94, 94)
+			ActualSliding.ScaleType = Enum.ScaleType.Slice
+			ActualSliding.SliceCenter = Rect.new(100, 100, 100, 100)
+			ActualSliding.SliceScale = 0.040
+
+			progress.Name = "progress"
+			progress.Parent = ActualSliding
+			progress.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			progress.BackgroundTransparency = 1.000
+			progress.Size = UDim2.new(0, 0, 0, 2)
+			progress.ZIndex = 2
+			progress.Image = "rbxassetid://3570695787"
+			progress.ImageColor3 = Color3.fromRGB(0, 85, 255)
+			progress.ScaleType = Enum.ScaleType.Slice
+			progress.SliceCenter = Rect.new(100, 100, 100, 100)
+			progress.SliceScale = 0.040
+
+			Frame.Name = "Frame"
+			Frame.Parent = progress
+			Frame.AnchorPoint = Vector2.new(0, 0.5)
+			Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Frame.BackgroundTransparency = 1.000
+			Frame.Position = UDim2.new(1, 0, 0.5, 0)
+			Frame.Size = UDim2.new(0, 8, 0, 20)
+			Frame.ZIndex = 1
+			Frame.Image = "rbxassetid://3570695787"
+			Frame.ImageColor3 = Color3.fromRGB(0, 85, 255)
+			Frame.ScaleType = Enum.ScaleType.Slice
+			Frame.SliceCenter = Rect.new(100, 100, 100, 100)
+			Frame.SliceScale = 0.120
+
+			SliderValuer.Name = "SliderValuer"
+			SliderValuer.Parent = ActualSliding
+			SliderValuer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			SliderValuer.BackgroundTransparency = 1.000
+			SliderValuer.BorderSizePixel = 0
+			SliderValuer.Position = UDim2.new(0, 273, 0, -35)
+			SliderValuer.Size = UDim2.new(0, 101, 0, 15)
+			SliderValuer.ZIndex = 3
+			SliderValuer.Font = Enum.Font.Gotham
+			SliderValuer.Text = min .. "  " .. suffix
+			SliderValuer.TextColor3 = Color3.fromRGB(255, 255, 255)
+			SliderValuer.TextSize = 17.000
+			SliderValuer.TextWrapped = true
+			SliderValuer.TextXAlignment = Enum.TextXAlignment.Right
+
+
+			-----Values-----
+			local minvalue = min
+			local maxvalue = max
+			local sliding = false
+			-----Variables-----
+			local mouse = game.Players.LocalPlayer:GetMouse()
+			local uis = game:GetService("UserInputService")
+			local Value;
+
+			local function fade(Object,val,Delay)
+				local ToTween = Object
+				local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
+				local Tweener = TweenService:Create(ToTween,tweenInfo,{TextTransparency = val})
+				Tweener:Play()
+			end
+
+			-----Main Code-----
+
+			use.MouseButton1Down:Connect(function()
+				Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / ActualSliding.AbsoluteSize.X) * progress.AbsoluteSize.X) + tonumber(minvalue)) or 0
+				sliding = true
+				callback(Value)	
+				SliderValuer.Text = Value .."  " .. suffix
+				progress:TweenSize(UDim2.new(0, math.clamp(mouse.X - progress.AbsolutePosition.X, 0, ActualSliding.AbsoluteSize.X), 0, ActualSliding.AbsoluteSize.Y),"Out","Linear",0.1,true,nil)
+				moveconnection = mouse.Move:Connect(function()
+					SliderValuer.Text = Value .."  " .. suffix
+					Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / ActualSliding.AbsoluteSize.X) * progress.AbsoluteSize.X) + tonumber(minvalue))
+					progress:TweenSize(UDim2.new(0, math.clamp(mouse.X - progress.AbsolutePosition.X, 0, ActualSliding.AbsoluteSize.X), 0, ActualSliding.AbsoluteSize.Y),"Out","Linear",0.1,true,nil)
+					callback(Value)	
+				end)
+				releaseconnection = uis.InputEnded:Connect(function(Mouse)
+					if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
+						sliding = false
+						Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / ActualSliding.AbsoluteSize.X) * progress.AbsoluteSize.X) + tonumber(minvalue))
+						progress:TweenSize(UDim2.new(0, math.clamp(mouse.X - progress.AbsolutePosition.X, 0, ActualSliding.AbsoluteSize.X), 0, ActualSliding.AbsoluteSize.Y),"Out","Linear",0.1,true,nil)
+						SliderValuer.Text = Value .."  " .. suffix
+						callback(Value)	
+						moveconnection:Disconnect()
+						releaseconnection:Disconnect()
 					end
 				end)
-
-				function Elements:CreateSlider(Text,min,max,suffix,callback)
-
-					-- Instances:
-
-					local walkspeed = Instance.new("Frame")
-					local SliderNamer = Instance.new("TextLabel")
-					local ActualSliding = Instance.new("ImageButton")
-					local progress = Instance.new("ImageLabel")
-					local Frame = Instance.new("ImageLabel")
-					local SliderValuer = Instance.new("TextLabel")
-
-					--Properties:
-
-					walkspeed.Name = "walkspeed"
-					walkspeed.Parent = Container
-					walkspeed.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
-					walkspeed.BackgroundTransparency = 1.000
-					walkspeed.BorderColor3 = Color3.fromRGB(122, 122, 122)
-					walkspeed.Position = UDim2.new(0.025390625, 0, 0.461847395, 0)
-					walkspeed.Size = UDim2.new(0, 374, 0, 52)
-					walkspeed.ZIndex = 2
-
-					SliderNamer.Name = "SliderNamer"
-					SliderNamer.Parent = walkspeed
-					SliderNamer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					SliderNamer.BackgroundTransparency = 1.000
-					SliderNamer.Position = UDim2.new(0, 0, -0.255000174, 15)
-					SliderNamer.Size = UDim2.new(0, 161, 0, 20)
-					SliderNamer.ZIndex = 1
-					SliderNamer.Font = Enum.Font.Gotham
-					SliderNamer.Text = Text
-					SliderNamer.TextColor3 = Color3.fromRGB(255, 255, 255)
-					SliderNamer.TextSize = 16.000
-					SliderNamer.TextXAlignment = Enum.TextXAlignment.Left
-
-					ActualSliding.Name = "ActualSliding"
-					ActualSliding.Parent = walkspeed
-					ActualSliding.AnchorPoint = Vector2.new(0.5, 0.5)
-					ActualSliding.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					ActualSliding.BackgroundTransparency = 1.000
-					ActualSliding.BorderSizePixel = 0
-					ActualSliding.Position = UDim2.new(0.5, 0, 0.5, 15)
-					ActualSliding.Size = UDim2.new(0, 374, 0, 5)
-					ActualSliding.ZIndex = 1
-					ActualSliding.Image = "rbxassetid://3570695787"
-					ActualSliding.ImageColor3 = Color3.fromRGB(94, 94, 94)
-					ActualSliding.ScaleType = Enum.ScaleType.Slice
-					ActualSliding.SliceCenter = Rect.new(100, 100, 100, 100)
-					ActualSliding.SliceScale = 0.040
-
-					progress.Name = "progress"
-					progress.Parent = ActualSliding
-					progress.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					progress.BackgroundTransparency = 1.000
-					progress.Size = UDim2.new(0.100000001, 0, 0, 5)
-					progress.ZIndex = 2
-					progress.Image = "rbxassetid://3570695787"
-					progress.ImageColor3 = Color3.fromRGB(0, 85, 255)
-					progress.ScaleType = Enum.ScaleType.Slice
-					progress.SliceCenter = Rect.new(100, 100, 100, 100)
-					progress.SliceScale = 0.040
-
-					Frame.Name = "Frame"
-					Frame.Parent = progress
-					Frame.AnchorPoint = Vector2.new(0, 0.5)
-					Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					Frame.BackgroundTransparency = 1.000
-					Frame.Position = UDim2.new(1, 0, 0.5, 0)
-					Frame.Size = UDim2.new(0, 8, 0, 20)
-					Frame.ZIndex = 1
-					Frame.Image = "rbxassetid://3570695787"
-					Frame.ImageColor3 = Color3.fromRGB(0, 85, 255)
-					Frame.ScaleType = Enum.ScaleType.Slice
-					Frame.SliceCenter = Rect.new(100, 100, 100, 100)
-					Frame.SliceScale = 0.120
-
-					SliderValuer.Name = "SliderValuer"
-					SliderValuer.Parent = ActualSliding
-					SliderValuer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-					SliderValuer.BackgroundTransparency = 1.000
-					SliderValuer.BorderSizePixel = 0
-					SliderValuer.Position = UDim2.new(0, 273, 0, -35)
-					SliderValuer.Size = UDim2.new(0, 101, 0, 15)
-					SliderValuer.ZIndex = 3
-					SliderValuer.Font = Enum.Font.Gotham
-					SliderValuer.Text = min .. "  " .. suffix
-					SliderValuer.TextColor3 = Color3.fromRGB(255, 255, 255)
-					SliderValuer.TextSize = 17.000
-					SliderValuer.TextWrapped = true
-					SliderValuer.TextXAlignment = Enum.TextXAlignment.Right
-
-
-					-----Values-----
-					local minvalue = min
-					local maxvalue = max
-					local sliding = false
-					-----Variables-----
-					local mouse = game.Players.LocalPlayer:GetMouse()
-					local uis = game:GetService("UserInputService")
-					local Value;
-
-					local function fade(Object,val,Delay)
-						local ToTween = Object
-						local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
-						local Tweener = TweenService:Create(ToTween,tweenInfo,{TextTransparency = val})
-						Tweener:Play()
-					end
-
-					-----Main Code-----
-
-					ActualSliding.MouseButton1Down:Connect(function()
-						Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / ActualSliding.AbsoluteSize.X) * progress.AbsoluteSize.X) + tonumber(minvalue)) or 0
-						sliding = true
-						callback(Value)	
-						SliderValuer.Text = Value .."  " .. suffix
-						progress:TweenSize(UDim2.new(0, math.clamp(mouse.X - progress.AbsolutePosition.X, 0, ActualSliding.AbsoluteSize.X), 0, ActualSliding.AbsoluteSize.Y),"Out","Linear",0.1,true,nil)
-						moveconnection = mouse.Move:Connect(function()
-							SliderValuer.Text = Value .."  " .. suffix
-							Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / ActualSliding.AbsoluteSize.X) * progress.AbsoluteSize.X) + tonumber(minvalue))
-							progress:TweenSize(UDim2.new(0, math.clamp(mouse.X - progress.AbsolutePosition.X, 0, ActualSliding.AbsoluteSize.X), 0, ActualSliding.AbsoluteSize.Y),"Out","Linear",0.1,true,nil)
-							callback(Value)	
-						end)
-						releaseconnection = uis.InputEnded:Connect(function(Mouse)
-							if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
-								sliding = false
-								Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / ActualSliding.AbsoluteSize.X) * progress.AbsoluteSize.X) + tonumber(minvalue))
-								progress:TweenSize(UDim2.new(0, math.clamp(mouse.X - progress.AbsolutePosition.X, 0, ActualSliding.AbsoluteSize.X), 0, ActualSliding.AbsoluteSize.Y),"Out","Linear",0.1,true,nil)
-								SliderValuer.Text = Value .."  " .. suffix
-								callback(Value)	
-								moveconnection:Disconnect()
-								releaseconnection:Disconnect()
-							end
-						end)
-					end)
-				end
-				function Elements:CreateButton(Text,Aligment,callback)
-
-					local button = Instance.new("TextButton")
-
-					button.Name = Text
-					button.Parent = Container
-					button.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
-					button.BackgroundTransparency = 1.000
-					button.BorderSizePixel = 0
-					button.ClipsDescendants = true
-					button.Size = UDim2.new(0, 374, 0, 36)
-					button.ZIndex = 1
-					button.AutoButtonColor = false
-					button.Font = Enum.Font.Gotham
-					button.Text = Text
-					button.TextColor3 = Color3.fromRGB(255, 255, 255)
-					button.TextSize = 17.000
-					button.TextXAlignment = Enum.TextXAlignment[Aligment]
-
-
-					button.MouseEnter:Connect(function()
-						for i = 1,10 do
-							button.BackgroundTransparency = button.BackgroundTransparency - 0.03
-							wait()
-						end
-					end)
-
-					button.MouseLeave:Connect(function()
-						for i = 1,10 do
-							button.BackgroundTransparency = button.BackgroundTransparency + 0.03
-							wait()
-						end
-					end)
-					button.MouseButton1Click:Connect(function()
-						callback(button)
-						local Rippler = Instance.new("ImageLabel",button)
-						Rippler.Name = "Rippler"
-						Rippler.AnchorPoint = Vector2.new(0.5, 0.5)
-						Rippler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-						Rippler.BackgroundTransparency = 1.000
-						local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
-						Rippler.Position = UDim2.new(0, x, 0, y)
-						Rippler.Image = "rbxassetid://3701391885"
-						Rippler.ImageColor3 = Color3.fromRGB(120,120,120)
-						Rippler.ImageTransparency = 0.6
-						Rippler:TweenSize(UDim2.new(0,100,0,100),"Out","Quint",0.3)
-						Rippler.ZIndex = 12
-						wait(0.1)
-						for i = 1,10 do
-							Rippler.ImageTransparency = Rippler.ImageTransparency + 0.05
-							wait()
-						end
-					end)
-					return Elements;
-				end
-			end
+			end)
 		end
+		function Elements:CreateButton(Text,Aligment,callback)
+
+local button = Instance.new("TextButton")
+
+button.Name = Text
+button.Parent = Container
+button.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+button.BackgroundTransparency = 1.000
+button.BorderSizePixel = 0
+button.ClipsDescendants = true
+button.Size = UDim2.new(0, 374, 0, 36)
+button.ZIndex = 1
+button.AutoButtonColor = false
+button.Font = Enum.Font.Gotham
+button.Text = Text
+button.TextColor3 = Color3.fromRGB(255, 255, 255)
+button.TextSize = 17.000
+button.TextXAlignment = Enum.TextXAlignment[Aligment]
+
+
+		button.MouseEnter:Connect(function()
+			for i = 1,10 do
+				button.BackgroundTransparency = button.BackgroundTransparency - 0.03
+				wait()
+			end
+		end)
+
+		button.MouseLeave:Connect(function()
+			for i = 1,10 do
+				button.BackgroundTransparency = button.BackgroundTransparency + 0.03
+				wait()
+			end
+		end)
+button.MouseButton1Click:Connect(function()
+callback(button)
+			local Rippler = Instance.new("ImageLabel",button)
+			Rippler.Name = "Rippler"
+			Rippler.AnchorPoint = Vector2.new(0.5, 0.5)
+			Rippler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Rippler.BackgroundTransparency = 1.000
+			local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
+			Rippler.Position = UDim2.new(0, x, 0, y)
+			Rippler.Image = "rbxassetid://3701391885"
+			Rippler.ImageColor3 = Color3.fromRGB(120,120,120)
+			Rippler.ImageTransparency = 0.6
+			Rippler:TweenSize(UDim2.new(0,100,0,100),"Out","Quint",0.3)
+			Rippler.ZIndex = 12
+			wait(0.1)
+			for i = 1,10 do
+				Rippler.ImageTransparency = Rippler.ImageTransparency + 0.05
+				wait()
+			end
+end)
+
+end
 	end
-return mainlib;
+	return Elements;
+end
