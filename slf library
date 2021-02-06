@@ -1,6 +1,6 @@
 local KeyHide = "LeftAlt"
 
-local Library = {} 
+local mainlib = {} ; local Poo = {} ; local Elements = {} ;
 
 local TweenService = game:GetService("TweenService");
 local function color(Object,R,G,B,Delay)
@@ -13,7 +13,7 @@ end
 
 
 local ms = game.Players.LocalPlayer:GetMouse()
-function Library:CreateMain()
+function mainlib:CreateMain()
 	local library = Instance.new("ScreenGui")
 	local slf = Instance.new("Frame")
 	local main = Instance.new("Frame")
@@ -173,8 +173,8 @@ function Library:CreateMain()
 			end
 		end
 	end)
-local Tabs = {}
-	function Tabs:CreateTab(Text,canvas)
+
+	function Poo:CreateTab(Text,canvas)
 		local tab = Instance.new("TextButton")
 		local ImageLabel = Instance.new("ImageLabel")
 		local label = Instance.new("TextLabel")
@@ -297,7 +297,6 @@ local Tabs = {}
 			end
 			Container.Visible = true
 		end)
-		local Elements = {}
 		function Elements:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
 
@@ -311,7 +310,7 @@ local Tabs = {}
 			label.TextColor3 = Color3.fromRGB(255, 255,255)
 			label.TextSize = 17.000
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
-			end
+		end
 		function Elements:CreateSwitch(Text,callback)
 
 			local TextLabel = Instance.new("TextLabel")
@@ -414,7 +413,8 @@ local Tabs = {}
 					end
 				end
 			end)
-end
+		end
+
 		function Elements:CreateSlider(Text,min,max,suffix,callback)
 
 			-- Instances:
@@ -565,7 +565,7 @@ end
 					end
 				end)
 			end)
-			end
+		end
 		function Elements:CreateButton(Text,Aligment,callback)
 
 local button = Instance.new("TextButton")
@@ -619,11 +619,9 @@ callback(button)
 				wait()
 			end
 end)
-
+end
 	end
-	return Tabs;
-end
-return Elements;
-end
 
-return Library;
+end
+return Elements , mainlib , Poo;
+
