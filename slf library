@@ -292,6 +292,8 @@ tab.MouseButton1Click:Connect(function()
     local cur = "Container"..Text
     Container.Visible = true
 end)
+end
+end
 function Elements:CreateLabel(Text)
 local label = Instance.new("TextLabel")
 
