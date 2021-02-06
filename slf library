@@ -305,7 +305,6 @@ label.Font = Enum.Font.SourceSans
 label.Text = Text
 label.TextColor3 = Color3.fromRGB(255, 255,255)
 label.TextSize = 20.000
-end
 function Elements:CreateSwitch(Text,callback)
 
 local TextLabel = Instance.new("TextLabel")
@@ -410,4 +409,8 @@ circle.SliceCenter = Rect.new(100, 100, 100, 100)
 	end)
 end
 end
+return Elements;
 end
+return Poo;
+end
+return mainlib;
