@@ -170,7 +170,7 @@ function hover(Toggle)
 			end
 		end
 	end)
-
+end
 function Poo:CreateTab(Text)
 local tab = Instance.new("TextButton")
 local ImageLabel = Instance.new("ImageLabel")
@@ -413,7 +413,6 @@ circle.SliceCenter = Rect.new(100, 100, 100, 100)
 
 end
 return Elements;
-end
 return Poo;
-end
 return mainlib;
+end
