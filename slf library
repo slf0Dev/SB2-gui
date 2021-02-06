@@ -18,7 +18,7 @@ function mainlib:CreateMain()
 	local library = Instance.new("ScreenGui")
 	local slf = Instance.new("Frame")
 	local main = Instance.new("Frame")
-	local tabs = Instance.new("TextButton")
+	local tabs = Instance.new("Frame")
 	local list = Instance.new("Frame")
 	local UIListLayout = Instance.new("UIListLayout")
 	local TextButton = Instance.new("TextButton")
@@ -82,8 +82,6 @@ function mainlib:CreateMain()
 	tabs.BackgroundTransparency = 0
 	tabs.Size = UDim2.new(0, 180, 1, 0)
 	tabs.ZIndex = 3
-	tabs.Text = ""
-	tabs.AutoButtonColor = false
 
 	list.Name = "list"
 	list.Parent = tabs
@@ -148,34 +146,12 @@ function mainlib:CreateMain()
 hover(false)
 				main:TweenSize(UDim2.new(0,414,0,0),"Out","Quint",0.3)
 				main:TweenPosition(UDim2.new(0,0,0,0),"Out","Quint",0.3)
-	tabs.MouseButton1Click:Connect(function()
+	tabs.MouseEnter:Connect(function()
 		wait(.1)
 		hover(true)
 	end)
 
-tabs.MouseButton1Click:Connect(function()
-		local Rippler = Instance.new("ImageLabel")
-            Rippler.Parent = tabs
-			Rippler.Name = "Rippler"
-			Rippler.AnchorPoint = Vector2.new(0.5, 0.5)
-			Rippler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Rippler.BackgroundTransparency = 1.000
-			local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
-			Rippler.Position = UDim2.new(0, x, 0, y)
-			Rippler.Image = "rbxassetid://3701391885"
-			Rippler.ImageColor3 = Color3.fromRGB(50,100,255)
-			Rippler.ImageTransparency = 0
-			Rippler:TweenSize(UDim2.new(0,50,0,50),"Out","Quint",0.3)
-			Rippler.ZIndex = 12
-			wait(0.1)
-			for i = 1,20 do
-				Rippler.ImageTransparency = Rippler.ImageTransparency + 0.1
-				wait()
-			end
-			wait(1) do
-			Rippler:Destroy()
-			end
-	end)
+
 
 	tabs.MouseLeave:Connect(function()
 		wait(.1)
@@ -347,6 +323,7 @@ tabs.MouseButton1Click:Connect(function()
 		tab.MouseButton1Click:Connect(function()
 UIPageLayout:JumpToIndex(currenttab)
 		end)
+		
 		function Elements:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
 
@@ -695,8 +672,9 @@ callback(button)
 			Rippler:Destroy()
 			end
 end)
+	return Elements;
 end
+return Poo;
 	end
-
-end
 return mainlib;
+end
