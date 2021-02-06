@@ -173,8 +173,8 @@ function Library:CreateMain()
 			end
 		end
 	end)
-
-	function Library:CreateTab(Text,canvas)
+local Tabs = {}
+	function Tabs:CreateTab(Text,canvas)
 		local tab = Instance.new("TextButton")
 		local ImageLabel = Instance.new("ImageLabel")
 		local label = Instance.new("TextLabel")
@@ -297,6 +297,7 @@ function Library:CreateMain()
 			end
 			Container.Visible = true
 		end)
+		local Elements = {}
 		function Elements:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
 
@@ -310,7 +311,8 @@ function Library:CreateMain()
 			label.TextColor3 = Color3.fromRGB(255, 255,255)
 			label.TextSize = 17.000
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
-		function Library:CreateSwitch(Text,callback)
+			end
+		function Elements:CreateSwitch(Text,callback)
 
 			local TextLabel = Instance.new("TextLabel")
 			local switch = Instance.new("TextButton")
@@ -412,8 +414,8 @@ function Library:CreateMain()
 					end
 				end
 			end)
-
-		function Library:CreateSlider(Text,min,max,suffix,callback)
+end
+		function Elements:CreateSlider(Text,min,max,suffix,callback)
 
 			-- Instances:
 
@@ -563,7 +565,8 @@ function Library:CreateMain()
 					end
 				end)
 			end)
-		function Library:CreateButton(Text,Aligment,callback)
+			end
+		function Elements:CreateButton(Text,Aligment,callback)
 
 local button = Instance.new("TextButton")
 
@@ -616,12 +619,11 @@ callback(button)
 				wait()
 			end
 end)
-end
-end
-end
-end
+
 	end
+	return Tabs;
 end
+return Elements;
 end
 
 return Library;
