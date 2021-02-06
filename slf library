@@ -672,10 +672,8 @@ callback(button)
 			Rippler:Destroy()
 			end
 end)
-	return Elements;
 end
-return Poo;
-	end
+end
 end
 return mainlib;
 
