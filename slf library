@@ -170,7 +170,7 @@ function hover(Toggle)
 			end
 		end
 	end)
-end
+	return mainlib;
 function Poo:CreateTab(Text)
 local tab = Instance.new("TextButton")
 local ImageLabel = Instance.new("ImageLabel")
@@ -293,6 +293,7 @@ tab.MouseButton1Click:Connect(function()
     local cur = "Container"..Text
     Container.Visible = true
 end)
+return Poo;
 function Elements:CreateLabel(Text)
 local label = Instance.new("TextLabel")
 
@@ -410,4 +411,6 @@ circle.SliceCenter = Rect.new(100, 100, 100, 100)
 	end)
 	
 end
+end
+return Elements;
 end
