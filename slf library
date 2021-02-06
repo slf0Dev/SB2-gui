@@ -409,31 +409,11 @@ circle.SliceCenter = Rect.new(100, 100, 100, 100)
 		end
 	end)
 	
-		return toggle;
+		return Elements;
 
 end
-
 end
-return Elements;
+return Poo;
 end
 
-
-local plr = game.Players.LocalPlayer
-	local Event = game.ReplicatedStorage.Event
-	function GetMob()
-		for _, v in next, workspace.Mobs:GetChildren() do
-			if v:FindFirstChild("HumanoidRootPart") then
-				if game.PlaceId ~= 6144637080 then
-					if (v.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude <= _G.Range and v.Entity.Health.Value ~= 0 then
-						return v
-					end
-	
-				else if game.PlaceId == 6144637080 then
-						if (v.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude <= _G.Range and v.Entity.HitLives.Value >= 0  then
-							return v
-						end
-					end
-				end
-			end
-		end
-	end
+return mainlib;
