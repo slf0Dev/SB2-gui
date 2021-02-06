@@ -171,6 +171,7 @@ function mainlib:CreateMain()
 			end
 		end
 	end)
+	end
 	function Poo:CreateTab(Text)
 		local tab = Instance.new("TextButton")
 		local ImageLabel = Instance.new("ImageLabel")
@@ -294,6 +295,7 @@ function mainlib:CreateMain()
 			end
 			Container.Visible = true
 		end)
+		end
 		function Elements:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
 
@@ -599,9 +601,5 @@ callback(button)
 				wait()
 			end
 end)
-	return Elements;
 end
-	end
-
 end
-return mainlib;
