@@ -1,7 +1,7 @@
 local num = 0
 local KeyHide = "LeftAlt"
 
-local mainlib = {}
+local mainlib = {} ; local Poo = {} ; local Elements = {} ;
 
 local TweenService = game:GetService("TweenService");
 local function color(Object,R,G,B,Delay)
@@ -196,7 +196,7 @@ hover(false)
 			end
 		end
 	end)
-local Poo = {}
+
 	function Poo:CreateTab(Text,canvas)
 	local currenttab = num
 	num = num + 1
@@ -323,7 +323,7 @@ local Poo = {}
 		tab.MouseButton1Click:Connect(function()
 UIPageLayout:JumpToIndex(currenttab)
 		end)
-		local Elements = {}
+		
 		function Elements:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
 
@@ -672,8 +672,9 @@ callback(button)
 			Rippler:Destroy()
 			end
 end)
+	return Elements;
 end
-end
-end
+return Poo;
+	end
 return mainlib;
-
+end
