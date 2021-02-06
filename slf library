@@ -297,8 +297,6 @@ function mainlib:CreateMain()
 			end
 			Container.Visible = true
 		end)
-		end
-		return Poo;
 		function Elements:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
 
@@ -312,6 +310,7 @@ function mainlib:CreateMain()
 			label.TextColor3 = Color3.fromRGB(255, 255,255)
 			label.TextSize = 17.000
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
+		end
 		function Elements:CreateSwitch(Text,callback)
 
 			local TextLabel = Instance.new("TextLabel")
@@ -414,6 +413,7 @@ function mainlib:CreateMain()
 					end
 				end
 			end)
+		end
 
 		function Elements:CreateSlider(Text,min,max,suffix,callback)
 
@@ -565,6 +565,7 @@ function mainlib:CreateMain()
 					end
 				end)
 			end)
+		end
 		function Elements:CreateButton(Text,Aligment,callback)
 
 local button = Instance.new("TextButton")
@@ -619,8 +620,6 @@ callback(button)
 			end
 end)
 end
-return Elements;
-end
-end
-return mainlib;
+	end
 
+end
