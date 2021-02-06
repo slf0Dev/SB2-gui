@@ -1,4 +1,4 @@
-
+local num = 0
 local KeyHide = "LeftAlt"
 
 local mainlib = {} ; local Poo = {} ; local Elements = {} ;
@@ -18,12 +18,14 @@ function mainlib:CreateMain()
 	local library = Instance.new("ScreenGui")
 	local slf = Instance.new("Frame")
 	local main = Instance.new("Frame")
-	local tabs = Instance.new("Frame")
+	local tabs = Instance.new("TextButton")
 	local list = Instance.new("Frame")
 	local UIListLayout = Instance.new("UIListLayout")
 	local TextButton = Instance.new("TextButton")
 	local ImageLabel_3 = Instance.new("ImageLabel")
 	local Containers = Instance.new("Frame")
+	local UIPageLayout = Instance.new("UIPageLayout")
+
 	--Properties:
 
 	library.Name = "library"
@@ -61,13 +63,27 @@ function mainlib:CreateMain()
 	main.ClipsDescendants = true
 	main.ZIndex = 0
 
+    UIPageLayout.Parent = Containers
+    UIPageLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    UIPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
+    UIPageLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+    UIPageLayout.EasingDirection = Enum.EasingDirection.Out
+    UIPageLayout.EasingStyle = Enum.EasingStyle.Quint
+    UIPageLayout.FillDirection = "Vertical"
+    UIPageLayout.GamepadInputEnabled = false
+    UIPageLayout.TouchInputEnabled = false
+    UIPageLayout.ScrollWheelInputEnabled = false
+    UIPageLayout.TweenTime = 0.6
+
 	tabs.Name = "tabs"
 	tabs.Parent = main
-	tabs.BackgroundColor3 = Color3.fromRGB(255,255,255)
+	tabs.BackgroundColor3 = Color3.fromRGB(50,100,255)
 	tabs.BorderSizePixel = 0
 	tabs.BackgroundTransparency = 0
 	tabs.Size = UDim2.new(0, 180, 1, 0)
 	tabs.ZIndex = 3
+	tabs.Text = ""
+	tabs.AutoButtonColor = false
 
 	list.Name = "list"
 	list.Parent = tabs
@@ -85,7 +101,7 @@ function mainlib:CreateMain()
 	TextButton.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
 	TextButton.BackgroundTransparency = 1
 	TextButton.BorderSizePixel = 0
-	TextButton.ClipsDescendants = true
+	TextButton.ClipsDescendants = false
 	TextButton.Size = UDim2.new(0, 50, 0, 50)
 	TextButton.AutoButtonColor = false
 	TextButton.Font = Enum.Font.SourceSans
@@ -129,10 +145,36 @@ function mainlib:CreateMain()
 			end
 		end
 	end
-
-	tabs.MouseEnter:Connect(function()
+hover(false)
+				main:TweenSize(UDim2.new(0,414,0,0),"Out","Quint",0.3)
+				main:TweenPosition(UDim2.new(0,0,0,0),"Out","Quint",0.3)
+	tabs.MouseButton1Click:Connect(function()
 		wait(.1)
 		hover(true)
+	end)
+
+tabs.MouseButton1Click:Connect(function()
+		local Rippler = Instance.new("ImageLabel")
+            Rippler.Parent = tabs
+			Rippler.Name = "Rippler"
+			Rippler.AnchorPoint = Vector2.new(0.5, 0.5)
+			Rippler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Rippler.BackgroundTransparency = 1.000
+			local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
+			Rippler.Position = UDim2.new(0, x, 0, y)
+			Rippler.Image = "rbxassetid://3701391885"
+			Rippler.ImageColor3 = Color3.fromRGB(50,100,255)
+			Rippler.ImageTransparency = 0
+			Rippler:TweenSize(UDim2.new(0,50,0,50),"Out","Quint",0.3)
+			Rippler.ZIndex = 12
+			wait(0.1)
+			for i = 1,20 do
+				Rippler.ImageTransparency = Rippler.ImageTransparency + 0.1
+				wait()
+			end
+			wait(1) do
+			Rippler:Destroy()
+			end
 	end)
 
 	tabs.MouseLeave:Connect(function()
@@ -143,25 +185,29 @@ function mainlib:CreateMain()
 	--open/close
 
 	TextButton.MouseButton1Click:Connect(function()
-		local Rippler = Instance.new("ImageLabel",TextButton)
-		Rippler.Name = "Rippler"
-		Rippler.AnchorPoint = Vector2.new(0.5, 0.5)
-		Rippler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		Rippler.BackgroundTransparency = 1.000
-		local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
-		Rippler.Position = UDim2.new(0, x, 0, y)
-		Rippler.Image = "rbxassetid://3701391885"
-		Rippler.ImageColor3 = Color3.fromRGB(120,120,120)
-		Rippler.ImageTransparency = 0.6
-		Rippler:TweenSize(UDim2.new(0,100,0,100),"Out","Quint",0.3)
-		Rippler.ZIndex = 12
-		wait(0.1)
-		for i = 1,10 do
-			Rippler.ImageTransparency = Rippler.ImageTransparency + 0.05
-			wait()
-		end
+            local Rippler = Instance.new("ImageLabel")
+            Rippler.Parent = TextButton
+			Rippler.Name = "Rippler"
+			Rippler.AnchorPoint = Vector2.new(0.5, 0.5)
+			Rippler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Rippler.BackgroundTransparency = 1.000
+			local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
+			Rippler.Position = UDim2.new(0, x, 0, y)
+			Rippler.Image = "rbxassetid://3701391885"
+			Rippler.ImageColor3 = Color3.fromRGB(50,100,255)
+			Rippler.ImageTransparency = 0
+			Rippler:TweenSize(UDim2.new(0,50,0,50),"Out","Quint",0.3)
+			Rippler.ZIndex = 12
+			wait(0.1)
+			for i = 1,20 do
+				Rippler.ImageTransparency = Rippler.ImageTransparency + 0.1
+				wait()
+			end
+			wait(1) do
+			Rippler:Destroy()
+			end
 	end)
-	local toggle = true
+	local toggle = false
 	TextButton.MouseButton1Click:Connect(function()
 		if not toggle then
 			toggle = true
@@ -176,6 +222,8 @@ function mainlib:CreateMain()
 	end)
 
 	function Poo:CreateTab(Text,canvas)
+	local currenttab = num
+	num = num + 1
 		local tab = Instance.new("TextButton")
 		local ImageLabel = Instance.new("ImageLabel")
 		local label = Instance.new("TextLabel")
@@ -191,7 +239,7 @@ function mainlib:CreateMain()
 		tab.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
 		tab.BackgroundTransparency = 1.000
 		tab.BorderSizePixel = 0
-		tab.ClipsDescendants = true
+		tab.ClipsDescendants = false
 		tab.Size = UDim2.new(0, 180, 0, 36)
 		tab.ZIndex = 3
 		tab.AutoButtonColor = false
@@ -250,7 +298,7 @@ function mainlib:CreateMain()
 		Container.BackgroundTransparency = 1.000
 		Container.BorderSizePixel = 0
 		Container.Size = UDim2.new(0, 414, 0, 368)
-		Container.Visible = false
+		Container.Visible = true
 		Container.CanvasSize = UDim2.new(0, 0, 0, canvas * 10)
         Container.ScrollBarThickness = 4
 
@@ -261,7 +309,8 @@ function mainlib:CreateMain()
 		UIListLayout_2.Padding = UDim.new(0, 6)
 
 		tab.MouseButton1Click:Connect(function()
-			local Rippler = Instance.new("ImageLabel",tab)
+			            local Rippler = Instance.new("ImageLabel")
+            Rippler.Parent = tab
 			Rippler.Name = "Rippler"
 			Rippler.AnchorPoint = Vector2.new(0.5, 0.5)
 			Rippler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -269,14 +318,17 @@ function mainlib:CreateMain()
 			local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
 			Rippler.Position = UDim2.new(0, x, 0, y)
 			Rippler.Image = "rbxassetid://3701391885"
-			Rippler.ImageColor3 = Color3.fromRGB(120,120,120)
-			Rippler.ImageTransparency = 0.6
-			Rippler:TweenSize(UDim2.new(0,100,0,100),"Out","Quint",0.3)
+			Rippler.ImageColor3 = Color3.fromRGB(50,100,255)
+			Rippler.ImageTransparency = 0
+			Rippler:TweenSize(UDim2.new(0,50,0,50),"Out","Quint",0.3)
 			Rippler.ZIndex = 12
 			wait(0.1)
-			for i = 1,10 do
-				Rippler.ImageTransparency = Rippler.ImageTransparency + 0.05
+			for i = 1,20 do
+				Rippler.ImageTransparency = Rippler.ImageTransparency + 0.1
 				wait()
+			end
+			wait(1) do
+			Rippler:Destroy()
 			end
 		end)
 		tab.MouseEnter:Connect(function()
@@ -293,10 +345,7 @@ function mainlib:CreateMain()
 			end
 		end)
 		tab.MouseButton1Click:Connect(function()
-			for i,v in next,Containers:GetChildren() do
-				v.Visible = false
-			end
-			Container.Visible = true
+UIPageLayout:JumpToIndex(currenttab)
 		end)
 		function Elements:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
@@ -312,6 +361,7 @@ function mainlib:CreateMain()
 			label.TextSize = 17.000
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
 		end
+		
 		function Elements:CreateSwitch(Text,callback)
 
 			local TextLabel = Instance.new("TextLabel")
@@ -394,19 +444,40 @@ function mainlib:CreateMain()
 
 
 			local toggle = false
-
-
+            switch.MouseButton1Click:Connect(function()
+            local Rippler = Instance.new("ImageLabel")
+            Rippler.Parent = switch
+			Rippler.Name = "Rippler"
+			Rippler.AnchorPoint = Vector2.new(0.5, 0.5)
+			Rippler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Rippler.BackgroundTransparency = 1.000
+			local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
+			Rippler.Position = UDim2.new(0, x, 0, y)
+			Rippler.Image = "rbxassetid://3701391885"
+			Rippler.ImageColor3 = Color3.fromRGB(50,100,255)
+			Rippler.ImageTransparency = 0
+			Rippler:TweenSize(UDim2.new(0,50,0,50),"Out","Quint",0.3)
+			Rippler.ZIndex = 12
+			wait(0.1)
+			for i = 1,20 do
+				Rippler.ImageTransparency = Rippler.ImageTransparency + 0.1
+				wait()
+			end
+			wait(1) do
+			Rippler:Destroy()
+			end
+end)
 			switch.MouseButton1Click:Connect(function()
 				if not toggle then
 					toggle = true
-					circle:TweenPosition(UDim2.new(0.78,0,0.5,0),"Out","Quint",0.2)
+					circle:TweenPosition(UDim2.new(0.78,0,0.5,0),"Out","Quint",0.2,true,nil)
 					color(inner,0,85,255,0.2)
 					color(border,0,85,255,0.2)
 					color(circle,255,255,255,0.2)
 					callback(toggle)
 				else if toggle then
 						toggle = false
-						circle:TweenPosition(UDim2.new(0.22,0,0.5,0),"Out","Quint",0.2)
+						circle:TweenPosition(UDim2.new(0.22,0,0.5,0),"Out","Quint",0.2,true,nil)
 						color(inner,27,27,27,0.2)
 						color(border,255,255,255,0.2)
 						color(circle,0,85,255,0.2)
@@ -576,7 +647,7 @@ button.Parent = Container
 button.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
 button.BackgroundTransparency = 1.000
 button.BorderSizePixel = 0
-button.ClipsDescendants = true
+button.ClipsDescendants = false
 button.Size = UDim2.new(0, 374, 0, 36)
 button.ZIndex = 1
 button.AutoButtonColor = false
@@ -589,20 +660,21 @@ button.TextXAlignment = Enum.TextXAlignment[Aligment]
 
 		button.MouseEnter:Connect(function()
 			for i = 1,10 do
-				button.BackgroundTransparency = button.BackgroundTransparency - 0.03
+				button.BackgroundTransparency = button.BackgroundTransparency - 0.2
 				wait()
 			end
 		end)
 
 		button.MouseLeave:Connect(function()
 			for i = 1,10 do
-				button.BackgroundTransparency = button.BackgroundTransparency + 0.03
+				button.BackgroundTransparency = button.BackgroundTransparency + 0.2
 				wait()
 			end
 		end)
 button.MouseButton1Click:Connect(function()
 callback(button)
-			local Rippler = Instance.new("ImageLabel",button)
+			            local Rippler = Instance.new("ImageLabel")
+            Rippler.Parent = button
 			Rippler.Name = "Rippler"
 			Rippler.AnchorPoint = Vector2.new(0.5, 0.5)
 			Rippler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -610,14 +682,17 @@ callback(button)
 			local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
 			Rippler.Position = UDim2.new(0, x, 0, y)
 			Rippler.Image = "rbxassetid://3701391885"
-			Rippler.ImageColor3 = Color3.fromRGB(120,120,120)
-			Rippler.ImageTransparency = 0.6
-			Rippler:TweenSize(UDim2.new(0,100,0,100),"Out","Quint",0.3)
+			Rippler.ImageColor3 = Color3.fromRGB(50,100,255)
+			Rippler.ImageTransparency = 0
+			Rippler:TweenSize(UDim2.new(0,50,0,50),"Out","Quint",0.3)
 			Rippler.ZIndex = 12
 			wait(0.1)
-			for i = 1,10 do
-				Rippler.ImageTransparency = Rippler.ImageTransparency + 0.05
+			for i = 1,20 do
+				Rippler.ImageTransparency = Rippler.ImageTransparency + 0.1
 				wait()
+			end
+			wait(1) do
+			Rippler:Destroy()
 			end
 end)
 	return Elements;
@@ -625,37 +700,3 @@ end
 	end
 
 end
-
-
-
-
-local main = mainlib:CreateMain()
-
-local farmFolder = Poo:CreateTab("Main",50)
-local farm = Elements:CreateSwitch("something",function(state)
-	if state then
-		print(state)
-	else
-		print(state)
-	end
-end)
-
-local farmFolder = Poo:CreateTab("Misc",50)
-local farm = Elements:CreateSwitch("lol",function(state)
-	if state then
-		print(state)
-	else
-		print(state)
-	end
-end)
-local slider = Elements:CreateSlider("WalkSpeed",16,100,"studs",function(value)
-	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
-end)
-
-local btn = Elements:CreateButton("button","Center",function(value)
- print'pressed'
-end)
-
-local Left = Elements:CreateLabel("Left","Left")
-local Center = Elements:CreateLabel("Center","Center")
-local Right = Elements:CreateLabel("Right","Right")
