@@ -1,6 +1,6 @@
 local KeyHide = "LeftAlt"
 
-local mainlib = {} ; local Poo = {} ; local Elements = {} ;
+local mainlib = {} ; local Elements = {} ;
 
 local TweenService = game:GetService("TweenService");
 local function color(Object,R,G,B,Delay)
@@ -174,7 +174,7 @@ function mainlib:CreateMain()
 		end
 	end)
 
-	function Poo:CreateTab(Text,canvas)
+	function mainlib:CreateTab(Text,canvas)
 		local tab = Instance.new("TextButton")
 		local ImageLabel = Instance.new("ImageLabel")
 		local label = Instance.new("TextLabel")
@@ -621,7 +621,6 @@ callback(button)
 end)
 	return Elements;
 end
-return Poo;
 	end
 end
 return mainlib;
