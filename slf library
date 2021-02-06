@@ -408,11 +408,7 @@ circle.SliceCenter = Rect.new(100, 100, 100, 100)
 			end
 		end
 	end)
-	
-		return toggle;
-
+	return Elements;
 end
-
 end
-return Elements;
 end
