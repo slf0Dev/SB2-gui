@@ -171,7 +171,6 @@ function mainlib:CreateMain()
 			end
 		end
 	end)
-return mainlib;
 	function Poo:CreateTab(Text)
 		local tab = Instance.new("TextButton")
 		local ImageLabel = Instance.new("ImageLabel")
@@ -600,8 +599,9 @@ callback(button)
 				wait()
 			end
 end)
-
-end
-	end
 	return Elements;
 end
+	end
+
+end
+return mainlib;
