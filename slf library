@@ -695,7 +695,6 @@ callback(button)
 			Rippler:Destroy()
 			end
 end)
-	return Elements;
 end
 	end
 
