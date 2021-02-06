@@ -408,13 +408,12 @@ circle.SliceCenter = Rect.new(100, 100, 100, 100)
 			end
 		end
 	end)
-	
-		return Elements;
 
 end
-end
+return Elements;
 end
 return Poo;
+end
 end
 
 return mainlib;
