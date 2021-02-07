@@ -196,7 +196,8 @@ hover(false)
 			end
 		end
 	end)
-
+	return main;
+end
 
 	function burger:CreateTab(Text,canvas)
 	local currenttab = num
@@ -677,6 +678,5 @@ callback(button)
 			end
 end)
 return button;
-end
 end
  return burger;
