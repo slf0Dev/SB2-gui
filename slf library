@@ -3,7 +3,7 @@ local KeyHide = "LeftAlt"
 
 local mainlib = {} 
 local Elements = {} 
-local tabs = {} 
+local boopbeep = {} 
 local TweenService = game:GetService("TweenService");
 local function color(Object,R,G,B,Delay)
 	local ToTween = Object
@@ -198,7 +198,7 @@ hover(false)
 		end
 	end)
 
-	function tabs:CreateTab(Text,canvas)
+	function boopbeep:CreateTab(Text,canvas)
 	local currenttab = num
 	num = num + 1
 		local tab = Instance.new("TextButton")
