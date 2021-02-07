@@ -337,10 +337,12 @@ UIPageLayout:JumpToIndex(currenttab)
 			label.TextSize = 17.000
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
 			canvas = canvas + 60
+			Container.CanvasSize = UDim2.new(0, 0, canvas, 0)
 		end
 		
 		function Library:CreateSwitch(Text,callback)
 canvas = canvas + 60
+Container.CanvasSize = UDim2.new(0, 0, canvas, 0)
 			local TextLabel = Instance.new("TextLabel")
 			local switch = Instance.new("TextButton")
 			local border = Instance.new("ImageLabel")
@@ -466,6 +468,7 @@ end)
 
 		function Library:CreateSlider(Text,min,max,suffix,callback)
 canvas = canvas + 60
+Container.CanvasSize = UDim2.new(0, 0, canvas, 0)
 			-- Instances:
 
 			local walkspeed = Instance.new("Frame")
@@ -617,6 +620,7 @@ canvas = canvas + 60
 		end
 		function Library:CreateButton(Text,Aligment,callback)
 canvas = canvas + 60
+Container.CanvasSize = UDim2.new(0, 0, canvas, 0)
 local button = Instance.new("TextButton")
 
 button.Name = Text
@@ -672,7 +676,7 @@ callback(button)
 			Rippler:Destroy()
 			end
 end)
-Container.CanvasSize = UDim2.new(0, 0, canvas, 0)
+
 end
 end
 end
