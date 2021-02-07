@@ -197,9 +197,10 @@ hover(false)
 		end
 	end)
 
-	function Library:CreateTab(Text,canvas)
-	local currenttab = num
-	num = num + 1
+	function Library:CreateTab(Text)
+	    local currenttab = num
+	    num = num + 1
+	    local canvas = 0
 		local tab = Instance.new("TextButton")
 		local ImageLabel = Instance.new("ImageLabel")
 		local label = Instance.new("TextLabel")
@@ -275,7 +276,7 @@ hover(false)
 		Container.BorderSizePixel = 0
 		Container.Size = UDim2.new(0, 414, 0, 368)
 		Container.Visible = true
-		Container.CanvasSize = UDim2.new(0, 0, 0, canvas * 10)
+		Container.CanvasSize = UDim2.new(0, 0, 0, canvas)
         Container.ScrollBarThickness = 4
 
 		UIListLayout_2.Parent = Container
@@ -336,10 +337,11 @@ UIPageLayout:JumpToIndex(currenttab)
 			label.TextColor3 = Color3.fromRGB(255, 255,255)
 			label.TextSize = 17.000
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
+			canvas = canvas + 30
 		end
 		
 		function Library:CreateSwitch(Text,callback)
-
+canvas = canvas + 30
 			local TextLabel = Instance.new("TextLabel")
 			local switch = Instance.new("TextButton")
 			local border = Instance.new("ImageLabel")
@@ -464,7 +466,7 @@ end)
 		end
 
 		function Library:CreateSlider(Text,min,max,suffix,callback)
-
+canvas = canvas + 30
 			-- Instances:
 
 			local walkspeed = Instance.new("Frame")
@@ -615,7 +617,7 @@ end)
 			end)
 		end
 		function Library:CreateButton(Text,Aligment,callback)
-
+canvas = canvas + 30
 local button = Instance.new("TextButton")
 
 button.Name = Text
