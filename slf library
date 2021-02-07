@@ -200,7 +200,7 @@ hover(false)
 	function Library:CreateTab(Text)
 	    local currenttab = num
 	    num = num + 1
-	    local canvas = 1
+	    local canvas = 10
 		local tab = Instance.new("TextButton")
 		local ImageLabel = Instance.new("ImageLabel")
 		local label = Instance.new("TextLabel")
@@ -274,7 +274,7 @@ hover(false)
 		Container.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Container.BackgroundTransparency = 1.000
 		Container.BorderSizePixel = 0
-		Container.CanvasSize = UDim2.new(0, 0, 2, 0)
+		Container.CanvasSize = UDim2.new(0, 0, 10, 0)
 		Container.Size = UDim2.new(0, 414, 0, 368)
 		Container.Visible = true
         Container.ScrollBarThickness = 4
