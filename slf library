@@ -196,7 +196,6 @@ hover(false)
 			end
 		end
 	end)
-	return main;
 end
 
 	function burger:CreateTab(Text,canvas)
@@ -339,7 +338,6 @@ UIPageLayout:JumpToIndex(currenttab)
 			label.TextColor3 = Color3.fromRGB(255, 255,255)
 			label.TextSize = 17.000
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
-			return label;
 		end
 		function burger:CreateSwitch(Text,callback)
 
@@ -464,7 +462,6 @@ end)
 					end
 				end
 			end)
-			return TextLabel;
 		end
 
 		function burger:CreateSlider(Text,min,max,suffix,callback)
@@ -617,7 +614,6 @@ end)
 					end
 				end)
 			end)
-			return walkspeed
 		end
 		function burger:CreateButton(Text,Aligment,callback)
 
@@ -676,7 +672,6 @@ callback(button)
 			Rippler:Destroy()
 			end
 end)
-return button;
 end
 end
  return burger;
