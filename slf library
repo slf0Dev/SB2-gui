@@ -1,5 +1,4 @@
 local num = 0
-local KeyHide = "LeftAlt"
 
 local Library = {} 
 
@@ -14,7 +13,7 @@ end
 
 
 local ms = game.Players.LocalPlayer:GetMouse()
-function Library:CreateMain()
+function Library:CreateMain(KeyHide)
 	local library = Instance.new("ScreenGui")
 	local slf = Instance.new("Frame")
 	local main = Instance.new("Frame")
