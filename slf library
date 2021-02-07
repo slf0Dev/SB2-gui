@@ -199,7 +199,7 @@ hover(false)
 	end)
 	return main;
 end
-	function library:CreateTab(Text,canvas)
+	function boopbeep:CreateTab(Text,canvas)
 	local currenttab = num
 	num = num + 1
 		local tab = Instance.new("TextButton")
@@ -327,7 +327,7 @@ UIPageLayout:JumpToIndex(currenttab)
 		end)
 		return tab;
 		end
-		
+		return boopbeep;
 		function Elements:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
 
@@ -343,7 +343,6 @@ UIPageLayout:JumpToIndex(currenttab)
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
 			return label;
 		end
-		
 		function Elements:CreateSwitch(Text,callback)
 
 			local TextLabel = Instance.new("TextLabel")
