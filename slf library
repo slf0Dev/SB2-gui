@@ -327,7 +327,6 @@ UIPageLayout:JumpToIndex(currenttab)
 		end)
 		return tab;
 		end
-		return boopbeep;
 		function Elements:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
 
@@ -683,3 +682,5 @@ end
  return Elements;
  end
  return mainlib;
+return boopbeep;
+
