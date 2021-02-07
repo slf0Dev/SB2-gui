@@ -200,7 +200,7 @@ hover(false)
 	function Library:CreateTab(Text)
 	    local currenttab = num
 	    num = num + 1
-	    local canvas = 1
+	    local canvas = 1000
 		local tab = Instance.new("TextButton")
 		local ImageLabel = Instance.new("ImageLabel")
 		local label = Instance.new("TextLabel")
