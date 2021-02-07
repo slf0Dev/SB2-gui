@@ -337,12 +337,12 @@ UIPageLayout:JumpToIndex(currenttab)
 			label.TextColor3 = Color3.fromRGB(255, 255,255)
 			label.TextSize = 17.000
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
-			canvas = canvas + 60
+			canvas = canvas + 60000
 			Container.CanvasSize = UDim2.new(0, 0, 0, canvas)
 		end
 		
 		function Library:CreateSwitch(Text,callback)
-			canvas = canvas + 60
+			canvas = canvas + 60000
 			Container.CanvasSize = UDim2.new(0, 0, 0, canvas)
 			local TextLabel = Instance.new("TextLabel")
 			local switch = Instance.new("TextButton")
