@@ -1,8 +1,9 @@
 local num = 0
 local KeyHide = "LeftAlt"
 
-local mainlib = {} ; local Elements = {} ;
-
+local mainlib = {} 
+local Elements = {} 
+local tabs = {} 
 local TweenService = game:GetService("TweenService");
 local function color(Object,R,G,B,Delay)
 	local ToTween = Object
@@ -197,7 +198,7 @@ hover(false)
 		end
 	end)
 
-	function mainlib:CreateTab(Text,canvas)
+	function tabs:CreateTab(Text,canvas)
 	local currenttab = num
 	num = num + 1
 		local tab = Instance.new("TextButton")
@@ -676,5 +677,6 @@ end)
 end
  return Elements;
 end
+return tabs
 end
  return mainlib;
