@@ -197,10 +197,9 @@ hover(false)
 		end
 	end)
 
-	function Library:CreateTab(Text)
+	function Library:CreateTab(Text,canvas)
 	    local currenttab = num
 	    num = num + 1
-	    local canvas = 1000
 		local tab = Instance.new("TextButton")
 		local ImageLabel = Instance.new("ImageLabel")
 		local label = Instance.new("TextLabel")
@@ -337,13 +336,9 @@ UIPageLayout:JumpToIndex(currenttab)
 			label.TextColor3 = Color3.fromRGB(255, 255,255)
 			label.TextSize = 17.000
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
-			canvas = canvas + 60000
-			Container.CanvasSize = UDim2.new(0, 0, canvas, 0)
 		end
 		
 		function Library:CreateSwitch(Text,callback)
-			canvas = canvas + 60000
-			Container.CanvasSize = UDim2.new(0, 0, 0, canvas)
 			local TextLabel = Instance.new("TextLabel")
 			local switch = Instance.new("TextButton")
 			local border = Instance.new("ImageLabel")
@@ -468,8 +463,6 @@ end)
 		end
 
 		function Library:CreateSlider(Text,min,max,suffix,callback)
-			canvas = canvas + 60
-			Container.CanvasSize = UDim2.new(0, 0, 0, canvas)
 			-- Instances:
 
 			local walkspeed = Instance.new("Frame")
@@ -620,8 +613,6 @@ end)
 			end)
 		end
 		function Library:CreateButton(Text,Aligment,callback)
-			canvas = canvas + 60
-			Container.CanvasSize = UDim2.new(0, 0, 0, canvas)
 local button = Instance.new("TextButton")
 
 button.Name = Text
