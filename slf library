@@ -324,7 +324,7 @@ hover(false)
 		tab.MouseButton1Click:Connect(function()
 UIPageLayout:JumpToIndex(currenttab)
 		end)
-		return boopbeep;
+		
 		end
 		
 		function Elements:CreateLabel(Text,Aligment)
@@ -675,8 +675,9 @@ callback(button)
 			Rippler:Destroy()
 			end
 end)
-
-end
  return Elements;
+end
+return boopbeep;
+
 end
  return mainlib;
