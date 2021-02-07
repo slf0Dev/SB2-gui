@@ -1,9 +1,8 @@
 local num = 0
 local KeyHide = "LeftAlt"
 
-local mainlib = {} 
-local Elements = {} 
-local boopbeep = {} 
+local burger = {} 
+
 local TweenService = game:GetService("TweenService");
 local function color(Object,R,G,B,Delay)
 	local ToTween = Object
@@ -15,7 +14,7 @@ end
 
 
 local ms = game.Players.LocalPlayer:GetMouse()
-function mainlib:CreateMain()
+function burger:CreateMain()
 	local library = Instance.new("ScreenGui")
 	local slf = Instance.new("Frame")
 	local main = Instance.new("Frame")
@@ -199,7 +198,7 @@ hover(false)
 	end)
 	return main;
 end
-	function boopbeep:CreateTab(Text,canvas)
+	function burger:CreateTab(Text,canvas)
 	local currenttab = num
 	num = num + 1
 		local tab = Instance.new("TextButton")
@@ -327,7 +326,7 @@ UIPageLayout:JumpToIndex(currenttab)
 		end)
 		return tab;
 		end
-		function Elements:CreateLabel(Text,Aligment)
+		function burger:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
 
 			label.Name = "idk"
@@ -342,7 +341,7 @@ UIPageLayout:JumpToIndex(currenttab)
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
 			return label;
 		end
-		function Elements:CreateSwitch(Text,callback)
+		function burger:CreateSwitch(Text,callback)
 
 			local TextLabel = Instance.new("TextLabel")
 			local switch = Instance.new("TextButton")
@@ -468,7 +467,7 @@ end)
 			return TextLabel;
 		end
 
-		function Elements:CreateSlider(Text,min,max,suffix,callback)
+		function burger:CreateSlider(Text,min,max,suffix,callback)
 
 			-- Instances:
 
@@ -620,7 +619,7 @@ end)
 			end)
 			return walkspeed
 		end
-		function Elements:CreateButton(Text,Aligment,callback)
+		function burger:CreateButton(Text,Aligment,callback)
 
 local button = Instance.new("TextButton")
 
@@ -679,6 +678,5 @@ callback(button)
 end)
 return button;
 end
- return Elements;
  end
- return mainlib;
+ return burger;
