@@ -677,7 +677,5 @@ callback(button)
 end)
  return Elements;
 end
-return boopbeep;
 
-end
  return mainlib;
