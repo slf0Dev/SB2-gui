@@ -672,8 +672,8 @@ callback(button)
 			Rippler:Destroy()
 			end
 end)
-end
 Container.CanvasSize = UDim2.new(0, 0, canvas, 0)
+end
 end
 end
 return Library;
