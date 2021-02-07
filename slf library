@@ -3,14 +3,19 @@ local num = 0
 local Library = {} 
 
 local TweenService = game:GetService("TweenService");
-local function color(Object,R,G,B,Delay)
+local function color(Object,col,Delay)
 	local ToTween = Object
 	local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
-	local Tweener = TweenService:Create(ToTween,tweenInfo,{ImageColor3 = Color3.fromRGB(R,G,B)})
+	local Tweener = TweenService:Create(ToTween,tweenInfo,{ImageColor3 = col})
 	Tweener:Play()
 end
 
-
+themes = {
+["MainColor"] = Color3.fromRGB(255,255,255),
+["Accent"] = Color3.fromRGB(255,100,100),
+["TabsListColor"] = Color3.fromRGB(200,200,200),
+["TextColor"] = Color3.fromRGB(0,0,0)
+}
 
 local ms = game.Players.LocalPlayer:GetMouse()
 function Library:CreateMain(KeyHide)
@@ -33,7 +38,7 @@ function Library:CreateMain(KeyHide)
 
 	slf.Name = "slf"
 	slf.Parent = library
-	slf.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+	slf.BackgroundColor3 = themes["MainColor"]
 	slf.BorderSizePixel = 0
 	slf.Position = UDim2.new(0, 0, 1, -50)
 	slf.Size = UDim2.new(1, 0, 0, 50)
@@ -55,7 +60,7 @@ function Library:CreateMain(KeyHide)
 
 	main.Name = "main"
 	main.Parent = slf
-	main.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+	main.BackgroundColor3 = themes["MainColor"]
 	main.BorderSizePixel = 0
 	main.Position = UDim2.new(0, 0, 0, -368)
 	main.Size = UDim2.new(0, 414, 0, 368)
@@ -76,7 +81,7 @@ function Library:CreateMain(KeyHide)
 
 	tabs.Name = "tabs"
 	tabs.Parent = main
-	tabs.BackgroundColor3 = Color3.fromRGB(50,100,255)
+	tabs.BackgroundColor3 = themes["Accent"]
 	tabs.BorderSizePixel = 0
 	tabs.BackgroundTransparency = 0
 	tabs.Size = UDim2.new(0, 180, 1, 0)
@@ -84,7 +89,7 @@ function Library:CreateMain(KeyHide)
 
 	list.Name = "list"
 	list.Parent = tabs
-	list.BackgroundColor3 = Color3.fromRGB(30,30,30)
+	list.BackgroundColor3 = themes["TabsListColor"]
 	list.BorderSizePixel = 0
 	list.ClipsDescendants = true
 	list.Size = UDim2.new(0, 180, 1, 0)
@@ -114,6 +119,7 @@ function Library:CreateMain(KeyHide)
 	ImageLabel_3.Position = UDim2.new(0.5, 0, 0.5, 0)
 	ImageLabel_3.Size = UDim2.new(0, 30, 0, 30)
 	ImageLabel_3.Image = "rbxassetid://3926305904"
+	ImageLabel_3.ImageColor3 = themes["Accent"]
 	ImageLabel_3.ImageRectOffset = Vector2.new(764, 84)
 	ImageLabel_3.ImageRectSize = Vector2.new(36, 36)
 	ImageLabel_3.ImageTransparency = 0.100
@@ -169,7 +175,7 @@ hover(false)
 			local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
 			Rippler.Position = UDim2.new(0, x, 0, y)
 			Rippler.Image = "rbxassetid://3701391885"
-			Rippler.ImageColor3 = Color3.fromRGB(50,100,255)
+			Rippler.ImageColor3 = themes["Accent"]
 			Rippler.ImageTransparency = 0
 			Rippler:TweenSize(UDim2.new(0,50,0,50),"Out","Quint",0.3)
 			Rippler.ZIndex = 12
@@ -211,7 +217,7 @@ hover(false)
 
 		tab.Name = Text
 		tab.Parent = list
-		tab.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+		tab.BackgroundColor3 = themes["MainColor"]
 		tab.BackgroundTransparency = 1.000
 		tab.BorderSizePixel = 0
 		tab.ClipsDescendants = false
@@ -232,7 +238,7 @@ hover(false)
 		ImageLabel.Size = UDim2.new(0, 30, 0, 30)
 		ImageLabel.ZIndex = 3
 		ImageLabel.Image = "rbxassetid://3926305904"
-		ImageLabel.ImageColor3 = Color3.fromRGB(0, 85, 255)
+		ImageLabel.ImageColor3 = themes["Accent"]
 		ImageLabel.ImageRectOffset = Vector2.new(44, 644)
 		ImageLabel.ImageRectSize = Vector2.new(36, 36)
 		ImageLabel.ImageTransparency = 0.100
@@ -247,7 +253,7 @@ hover(false)
 		label.ZIndex = 3
 		label.Font = Enum.Font.Gotham
 		label.Text = Text
-		label.TextColor3 = Color3.fromRGB(255, 255, 255)
+		label.TextColor3 = themes["TextColor"]
 		label.TextSize = 18.000
 		label.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -293,7 +299,7 @@ hover(false)
 			local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
 			Rippler.Position = UDim2.new(0, x, 0, y)
 			Rippler.Image = "rbxassetid://3701391885"
-			Rippler.ImageColor3 = Color3.fromRGB(50,100,255)
+			Rippler.ImageColor3 = themes["Accent"]
 			Rippler.ImageTransparency = 0
 			Rippler:TweenSize(UDim2.new(0,50,0,50),"Out","Quint",0.3)
 			Rippler.ZIndex = 12
@@ -332,7 +338,7 @@ UIPageLayout:JumpToIndex(currenttab)
 			label.Size = UDim2.new(1, -40, 0, 25)
 			label.Font = Enum.Font.Gotham
 			label.Text = Text
-			label.TextColor3 = Color3.fromRGB(255, 255,255)
+			label.TextColor3 = themes["TextColor"]
 			label.TextSize = 17.000
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
 		end
@@ -354,7 +360,7 @@ UIPageLayout:JumpToIndex(currenttab)
 			TextLabel.Size = UDim2.new(1, -40, 0, 34)
 			TextLabel.Font = Enum.Font.Gotham
 			TextLabel.Text = Text
-			TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+			TextLabel.TextColor3 = themes["TextColor"]
 			TextLabel.TextSize = 17.000
 			TextLabel.TextWrapped = true
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -382,7 +388,7 @@ UIPageLayout:JumpToIndex(currenttab)
 			border.Selectable = true
 			border.Size = UDim2.new(1, 0, 1, 0)
 			border.Image = "rbxassetid://3570695787"
-			border.ImageColor3 = Color3.fromRGB(167, 167, 167)
+			border.ImageColor3 = Color3.fromRGB(150,150,150)
 			border.ScaleType = Enum.ScaleType.Slice
 			border.SliceCenter = Rect.new(100, 100, 100, 100)
 
@@ -397,7 +403,7 @@ UIPageLayout:JumpToIndex(currenttab)
 			inner.Size = UDim2.new(0.959999979, 0, 0, 22)
 			inner.ZIndex = 2
 			inner.Image = "rbxassetid://3570695787"
-			inner.ImageColor3 = Color3.fromRGB(27, 27, 27)
+			inner.ImageColor3 = themes["MainColor"]
 			inner.ScaleType = Enum.ScaleType.Slice
 			inner.SliceCenter = Rect.new(100, 100, 100, 100)
 
@@ -412,7 +418,7 @@ UIPageLayout:JumpToIndex(currenttab)
 			circle.Size = UDim2.new(0, 18, 0, 18)
 			circle.ZIndex = 2
 			circle.Image = "rbxassetid://3570695787"
-			circle.ImageColor3 = Color3.fromRGB(0, 85, 255)
+			circle.ImageColor3 = themes["Accent"]
 			circle.ScaleType = Enum.ScaleType.Slice
 			circle.SliceCenter = Rect.new(100, 100, 100, 100)
 
@@ -428,7 +434,7 @@ UIPageLayout:JumpToIndex(currenttab)
 			local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
 			Rippler.Position = UDim2.new(0, x, 0, y)
 			Rippler.Image = "rbxassetid://3701391885"
-			Rippler.ImageColor3 = Color3.fromRGB(50,100,255)
+			Rippler.ImageColor3 = themes["Accent"]
 			Rippler.ImageTransparency = 0
 			Rippler:TweenSize(UDim2.new(0,50,0,50),"Out","Quint",0.3)
 			Rippler.ZIndex = 12
@@ -445,16 +451,16 @@ end)
 				if not toggle then
 					toggle = true
 					circle:TweenPosition(UDim2.new(0.78,0,0.5,0),"Out","Quint",0.2,true,nil)
-					color(inner,0,85,255,0.2)
-					color(border,0,85,255,0.2)
-					color(circle,255,255,255,0.2)
+					color(inner,themes["Accent"],0.2)
+					color(border,themes["Accent"],0.2)
+					color(circle,themes["MainColor"],0.2)
 					callback(toggle)
 				else if toggle then
 						toggle = false
 						circle:TweenPosition(UDim2.new(0.22,0,0.5,0),"Out","Quint",0.2,true,nil)
-						color(inner,27,27,27,0.2)
-						color(border,255,255,255,0.2)
-						color(circle,0,85,255,0.2)
+						color(inner,themes["MainColor"],0.2)
+						color(border,Color3.fromRGB(150,150,150),0.2)
+						color(circle,themes["Accent"],0.2)
 						callback(toggle)
 					end
 				end
@@ -507,14 +513,14 @@ end)
 			SliderNamer.ZIndex = 1
 			SliderNamer.Font = Enum.Font.Gotham
 			SliderNamer.Text = Text
-			SliderNamer.TextColor3 = Color3.fromRGB(255, 255, 255)
+			SliderNamer.TextColor3 = themes["TextColor"]
 			SliderNamer.TextSize = 16.000
 			SliderNamer.TextXAlignment = Enum.TextXAlignment.Left
 
 			ActualSliding.Name = "ActualSliding"
 			ActualSliding.Parent = walkspeed
 			ActualSliding.AnchorPoint = Vector2.new(0.5, 0.5)
-			ActualSliding.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			ActualSliding.BackgroundColor3 = Color3.fromRGB(150,150,150)
 			ActualSliding.BackgroundTransparency = 1.000
 			ActualSliding.BorderSizePixel = 0
 			ActualSliding.Position = UDim2.new(0.5, 0, 0.5, 15)
@@ -533,7 +539,7 @@ end)
 			progress.Size = UDim2.new(0, 0, 0, 2)
 			progress.ZIndex = 2
 			progress.Image = "rbxassetid://3570695787"
-			progress.ImageColor3 = Color3.fromRGB(0, 85, 255)
+			progress.ImageColor3 = themes["Accent"]
 			progress.ScaleType = Enum.ScaleType.Slice
 			progress.SliceCenter = Rect.new(100, 100, 100, 100)
 			progress.SliceScale = 0.040
@@ -547,7 +553,7 @@ end)
 			Frame.Size = UDim2.new(0, 8, 0, 20)
 			Frame.ZIndex = 1
 			Frame.Image = "rbxassetid://3570695787"
-			Frame.ImageColor3 = Color3.fromRGB(0, 85, 255)
+			Frame.ImageColor3 = themes["Accent"]
 			Frame.ScaleType = Enum.ScaleType.Slice
 			Frame.SliceCenter = Rect.new(100, 100, 100, 100)
 			Frame.SliceScale = 0.120
@@ -562,7 +568,7 @@ end)
 			SliderValuer.ZIndex = 3
 			SliderValuer.Font = Enum.Font.Gotham
 			SliderValuer.Text = min .. "  " .. suffix
-			SliderValuer.TextColor3 = Color3.fromRGB(255, 255, 255)
+			SliderValuer.TextColor3 = themes["TextColor"]
 			SliderValuer.TextSize = 17.000
 			SliderValuer.TextWrapped = true
 			SliderValuer.TextXAlignment = Enum.TextXAlignment.Right
@@ -616,7 +622,7 @@ local button = Instance.new("TextButton")
 
 button.Name = Text
 button.Parent = Container
-button.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+button.BackgroundColor3 = themes["MainColor"]
 button.BackgroundTransparency = 1.000
 button.BorderSizePixel = 0
 button.ClipsDescendants = false
@@ -625,7 +631,7 @@ button.ZIndex = 1
 button.AutoButtonColor = false
 button.Font = Enum.Font.Gotham
 button.Text = Text
-button.TextColor3 = Color3.fromRGB(255, 255, 255)
+button.TextColor3 = themes["TextColor"]
 button.TextSize = 17.000
 button.TextXAlignment = Enum.TextXAlignment[Aligment]
 
@@ -654,7 +660,7 @@ callback(button)
 			local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
 			Rippler.Position = UDim2.new(0, x, 0, y)
 			Rippler.Image = "rbxassetid://3701391885"
-			Rippler.ImageColor3 = Color3.fromRGB(50,100,255)
+			Rippler.ImageColor3 = themes["Accent"]
 			Rippler.ImageTransparency = 0
 			Rippler:TweenSize(UDim2.new(0,50,0,50),"Out","Quint",0.3)
 			Rippler.ZIndex = 12
