@@ -274,6 +274,7 @@ hover(false)
 		Container.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		Container.BackgroundTransparency = 1.000
 		Container.BorderSizePixel = 0
+		Container.CanvasSize = UDim2.new(0, 0, canvas, 0)
 		Container.Size = UDim2.new(0, 414, 0, 368)
 		Container.Visible = true
         Container.ScrollBarThickness = 4
