@@ -197,8 +197,9 @@ hover(false)
 			end
 		end
 	end)
-
-	function boopbeep:CreateTab(Text,canvas)
+	return main;
+end
+	function library:CreateTab(Text,canvas)
 	local currenttab = num
 	num = num + 1
 		local tab = Instance.new("TextButton")
