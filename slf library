@@ -324,8 +324,9 @@ hover(false)
 		tab.MouseButton1Click:Connect(function()
 UIPageLayout:JumpToIndex(currenttab)
 		end)
-		end
 		return boopbeep;
+		end
+		
 		function Elements:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
 
