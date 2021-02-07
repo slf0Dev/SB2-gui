@@ -276,7 +276,6 @@ hover(false)
 		Container.BorderSizePixel = 0
 		Container.Size = UDim2.new(0, 414, 0, 368)
 		Container.Visible = true
-		Container.CanvasSize = UDim2.new(0, 0, canvas, 0)
         Container.ScrollBarThickness = 4
 
 		UIListLayout_2.Parent = Container
@@ -674,6 +673,7 @@ callback(button)
 			end
 end)
 end
+Container.CanvasSize = UDim2.new(0, 0, canvas, 0)
 end
 end
 return Library;
