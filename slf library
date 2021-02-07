@@ -324,7 +324,7 @@ end
 		tab.MouseButton1Click:Connect(function()
 UIPageLayout:JumpToIndex(currenttab)
 		end)
-
+end
 		function burger:CreateLabel(Text,Aligment)
 			local label = Instance.new("TextLabel")
 
@@ -672,6 +672,5 @@ callback(button)
 			Rippler:Destroy()
 			end
 end)
-end
 end
  return burger;
