@@ -684,7 +684,7 @@ function Library:CreateNofitication(Title,Message,Duration)
 	--Properties:
 
 	nofi.Name = "nofi"
-	nofi.Parent = game.CoreGui.library
+	nofi.Parent = library
 
 	nofi.BackgroundColor3 = themes["MainColor"]
 	nofi.BackgroundTransparency = 0
