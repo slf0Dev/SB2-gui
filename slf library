@@ -714,7 +714,7 @@ function Library:CreateNofitication(Title,Message,Duration)
 	roundi.Name = "roundi"
 	roundi.Parent = hello
 	roundi.AnchorPoint = Vector2.new(0.5, 0.5)
-	roundi.BackgroundColor3 = themes["TabsListColor"]
+	roundi.BackgroundColor3 = themes["MainColor"]
 	roundi.BackgroundTransparency = 0
 	roundi.BorderSizePixel = 0
 	roundi.Position = UDim2.new(0.5, 0, 0.5, 0)
