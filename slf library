@@ -679,7 +679,7 @@ function Library:CreateNofitication(Title,Message,Duration)
 	local nofi = Instance.new("ImageLabel")
 	local hello = Instance.new("TextLabel")
 	local roundi = Instance.new("ImageLabel")
-	local Mod = Instance.new("TextLabel")
+	local text = Instance.new("TextLabel")
 
 	--Properties:
 
@@ -724,7 +724,7 @@ function Library:CreateNofitication(Title,Message,Duration)
 	roundi.SliceScale = 0.060
 	roundi.ImageTransparency = 1
 
-	text.Name = "Mod"
+	text.Name = "text"
 	text.Parent = nofi
 	text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	text.BackgroundTransparency = 1.000
