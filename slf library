@@ -675,6 +675,75 @@ callback(button)
 end)
 
 end
+function Library:CreateNofitication(Title,Message,Duration)
+	local nofi = Instance.new("ImageLabel")
+	local hello = Instance.new("TextLabel")
+	local roundi = Instance.new("ImageLabel")
+	local Mod = Instance.new("TextLabel")
+
+	--Properties:
+
+	nofi.Name = "nofi"
+	nofi.Parent = game.CoreGui.library
+
+	nofi.BackgroundColor3 = themes["MainColor"]
+	nofi.BackgroundTransparency = 0
+	nofi.ClipsDescendants = true
+	nofi.Position = UDim2.new(0.5, 0, 0.839237034, 0)
+	nofi.Size = UDim2.new(0, 0, 0, 77)
+	nofi.Image = "rbxassetid://3570695787"
+	nofi.ScaleType = Enum.ScaleType.Slice
+	nofi.SliceCenter = Rect.new(100, 100, 100, 100)
+	nofi.SliceScale = 0.060
+	nofi.ImageTransparency = 1
+
+	hello.Name = "hello"
+	hello.Parent = nofi
+	hello.BackgroundColor3 = Color3.fromRGB(172, 172, 172)
+	hello.BackgroundTransparency = 1.000
+	hello.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	hello.BorderSizePixel = 0
+	hello.Size = UDim2.new(0, 412, 0, 30)
+	hello.ZIndex = 2
+	hello.Font = Enum.Font.Gotham
+	hello.Text = Title
+	hello.TextColor3 = themes["TextColor"]
+	hello.TextSize = 18.000
+
+	roundi.Name = "roundi"
+	roundi.Parent = hello
+	roundi.AnchorPoint = Vector2.new(0.5, 0.5)
+	roundi.BackgroundColor3 = themes["TabsListColor"]
+	roundi.BackgroundTransparency = 0
+	roundi.Position = UDim2.new(0.5, 0, 0.5, 0)
+	roundi.Size = UDim2.new(1, 0, 1, 0)
+	roundi.Image = "rbxassetid://3570695787"
+	roundi.ImageColor3 = themes["TextColor"]
+	roundi.ScaleType = Enum.ScaleType.Slice
+	roundi.SliceCenter = Rect.new(100, 100, 100, 100)
+	roundi.SliceScale = 0.060
+	roundi.ImageTransparency = 1
+
+	text.Name = "Mod"
+	text.Parent = nofi
+	text.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	text.BackgroundTransparency = 1.000
+	text.BorderColor3 = Color3.fromRGB(27, 42, 53)
+	text.BorderSizePixel = 0
+	text.Position = UDim2.new(0, 0, 0.38961038, 0)
+	text.Size = UDim2.new(0, 412, 0, 47)
+	text.Font = Enum.Font.Gotham
+	text.Text = Message
+	text.TextColor3 = themes["TextColor"]
+	text.TextSize = 16.000
+
+	nofi:TweenSize(UDim2.new(0, 412, 0, 77),"Out","Quad",0.1)
+	wait(Duration)
+	nofi:TweenSize(UDim2.new(0, -0, 0, 77),"Out","Quad",0.1)
+	wait(0.3) do
+	nofi:Destroy()
+	end
+end
 end
 end
 return Library;
