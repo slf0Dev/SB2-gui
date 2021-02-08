@@ -622,7 +622,7 @@ local button = Instance.new("TextButton")
 
 button.Name = Text
 button.Parent = Container
-button.BackgroundColor3 = themes["MainColor"]
+button.BackgroundColor3 = themes["TabsListColor"]
 button.BackgroundTransparency = 1.000
 button.BorderSizePixel = 0
 button.ClipsDescendants = false
