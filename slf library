@@ -745,6 +745,59 @@ function Library:CreateNofitication(Title,Message,Duration)
 	wait(0.3) do
 	nofi:Destroy()
 	end
+	function Library:CreateTextBox(PlaceHolder)
+
+-- Instances:
+
+local txb = Instance.new("TextBox")
+local line = Instance.new("Frame")
+local hover = Instance.new("Frame")
+
+--Properties:
+
+txb.Name = "txb"
+txb.Parent = Container
+txb.BackgroundColor3 = themes["TabsListColor"]
+txb.BorderSizePixel = 0
+txb.Position = UDim2.new(0.345427066, 0, 0.0762942806, 0)
+txb.Size = UDim2.new(0, 374, 0, 35)
+txb.Font = Enum.Font.Gotham
+txb.PlaceholderColor3 = themes["TextColorColor"]
+txb.PlaceholderText = PlaceHolder
+txb.Text = ""
+txb.TextColor3 = themes["TextColorColor"]
+txb.TextSize = 17.000
+
+line.Name = "line"
+line.Parent = txb
+line.BackgroundColor3 = themes["TabsListColor"]
+line.BorderSizePixel = 0
+line.Position = UDim2.new(0, 0, 1, 0)
+line.Size = UDim2.new(0, 374, 0, 1)
+
+hover.Name = "hover"
+hover.Parent = line
+hover.AnchorPoint = Vector2.new(0.5, 0)
+hover.BackgroundColor3 = themes["Accent"]
+hover.BorderSizePixel = 0
+hover.Position = UDim2.new(0.5, 0, 0, 0)
+hover.Size = UDim2.new(0, 0, 0, 1)
+
+
+	txb.Focused:Connect(function()
+		hover:TweenSize(UDim2.new(1,0,0,1),"Out","Quint",0.2,true,nil)
+	end)
+	
+		txb.FocusLost:Connect(function()
+		if txb.Text == "" then
+				hover:TweenSize(UDim2.new(0,0,0,1),"Out","Quint",0.2,true,nil)
+			else 
+				local typ = txb.Text
+				callback(typ)
+		end
+
+end)
+end
 end
 end
 end
