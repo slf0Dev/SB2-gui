@@ -745,7 +745,7 @@ function Library:CreateNofitication(Title,Message,Duration)
 	wait(0.3) do
 	nofi:Destroy()
 	end
-	function Library:CreateTextBox(PlaceHolder)
+	function Library:CreateTextBox(PlaceHolder,callback)
 
 -- Instances:
 
