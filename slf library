@@ -423,15 +423,16 @@ UIPageLayout:JumpToIndex(currenttab)
 			circle.AnchorPoint = Vector2.new(0.5, 0.5)
 			circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			circle.BackgroundTransparency = 1.000
-			circle.Position = UDim2.new(0.22, 0, 0.5, 0)
 			circle.Selectable = true
 			circle.Size = UDim2.new(0, 18, 0, 18)
 			circle.ZIndex = 2
 			circle.Image = "rbxassetid://3570695787"
 									if enabled then
+												circle.Position = UDim2.new(0.78, 0, 0.5, 0)
 			circle.ImageColor3 = themes["MainColor"]
 			else
 			circle.ImageColor3 = themes["Accent"]
+			circle.Position = UDim2.new(0.22, 0, 0.5, 0)
 			end
 			circle.ScaleType = Enum.ScaleType.Slice
 			circle.SliceCenter = Rect.new(100, 100, 100, 100)
