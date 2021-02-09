@@ -343,7 +343,8 @@ UIPageLayout:JumpToIndex(currenttab)
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
 		end
 		
-		function Library:CreateSwitch(Text,callback)
+		function Library:CreateSwitch(Text,enabled,callback)
+		        local toggle
 			local TextLabel = Instance.new("TextLabel")
 			local switch = Instance.new("TextButton")
 			local border = Instance.new("ImageLabel")
@@ -388,7 +389,11 @@ UIPageLayout:JumpToIndex(currenttab)
 			border.Selectable = true
 			border.Size = UDim2.new(1, 0, 1, 0)
 			border.Image = "rbxassetid://3570695787"
+			if not enabled then
 			border.ImageColor3 = Color3.fromRGB(150,150,150)
+			else
+			border.ImageColor3 = themes["Accent"]
+			end
 			border.ScaleType = Enum.ScaleType.Slice
 			border.SliceCenter = Rect.new(100, 100, 100, 100)
 
@@ -403,7 +408,12 @@ UIPageLayout:JumpToIndex(currenttab)
 			inner.Size = UDim2.new(0.959999979, 0, 0, 22)
 			inner.ZIndex = 2
 			inner.Image = "rbxassetid://3570695787"
+						if not enabled then
 			inner.ImageColor3 = themes["MainColor"]
+			else
+			inner.ImageColor3 = themes["Accent"]
+			end
+
 			inner.ScaleType = Enum.ScaleType.Slice
 			inner.SliceCenter = Rect.new(100, 100, 100, 100)
 
@@ -418,35 +428,19 @@ UIPageLayout:JumpToIndex(currenttab)
 			circle.Size = UDim2.new(0, 18, 0, 18)
 			circle.ZIndex = 2
 			circle.Image = "rbxassetid://3570695787"
+									if enabled then
+			circle.ImageColor3 = themes["MainColor"]
+			else
 			circle.ImageColor3 = themes["Accent"]
+			end
 			circle.ScaleType = Enum.ScaleType.Slice
 			circle.SliceCenter = Rect.new(100, 100, 100, 100)
 
-
-			local toggle = false
-            switch.MouseButton1Click:Connect(function()
-            local Rippler = Instance.new("ImageLabel")
-            Rippler.Parent = switch
-			Rippler.Name = "Rippler"
-			Rippler.AnchorPoint = Vector2.new(0.5, 0.5)
-			Rippler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Rippler.BackgroundTransparency = 1.000
-			local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
-			Rippler.Position = UDim2.new(0, x, 0, y)
-			Rippler.Image = "rbxassetid://3701391885"
-			Rippler.ImageColor3 = themes["Accent"]
-			Rippler.ImageTransparency = 0
-			Rippler:TweenSize(UDim2.new(0,50,0,50),"Out","Quint",0.3)
-			Rippler.ZIndex = 12
-			wait(0.1)
-			for i = 1,20 do
-				Rippler.ImageTransparency = Rippler.ImageTransparency + 0.1
-				wait()
+if enabled then
+			toggle = true
+			else 
+			toggle = false
 			end
-			wait(1) do
-			Rippler:Destroy()
-			end
-end)
 			switch.MouseButton1Click:Connect(function()
 				if not toggle then
 					toggle = true
@@ -791,8 +785,9 @@ hover.Size = UDim2.new(0, 0, 0, 1)
 		txb.FocusLost:Connect(function()
 		if txb.Text == "" then
 				hover:TweenSize(UDim2.new(0,0,0,1),"Out","Quint",0.2,true,nil)
-			else 
-				callback("cock")
+			else if txb.Text ~= "" then
+				callback(txb.Text)
+		end
 		end
 
 end)
