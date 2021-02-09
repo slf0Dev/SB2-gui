@@ -765,7 +765,7 @@ txb.Font = Enum.Font.Gotham
 txb.PlaceholderColor3 = themes["TextColor"]
 txb.PlaceholderText = PlaceHolder
 txb.Text = ""
-txb.TextColor3 = themes["TextColorColor"]
+txb.TextColor3 = themes["TextColor"]
 txb.TextSize = 17.000
 
 line.Name = "line"
