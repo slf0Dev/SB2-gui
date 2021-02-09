@@ -792,8 +792,7 @@ hover.Size = UDim2.new(0, 0, 0, 1)
 		if txb.Text == "" then
 				hover:TweenSize(UDim2.new(0,0,0,1),"Out","Quint",0.2,true,nil)
 			else 
-				local typ = txb.Text
-				callback(typ)
+				callback("cock")
 		end
 
 end)
