@@ -786,7 +786,7 @@ hover.Size = UDim2.new(0, 0, 0, 1)
 		txb.FocusLost:Connect(function()
 		if txb.Text == "" then
 				hover:TweenSize(UDim2.new(0,0,0,1),"Out","Quint",0.2,true,nil)
-			else if txb.Text ~= "" then
+			else if not txb.Text == "" then
 				callback(txb.Text)
 		end
 		end
