@@ -767,7 +767,9 @@ TextLabel.BorderSizePixel = 0
 TextLabel.Position = UDim2.new(0.0454545468, 0, 0, 0)
 TextLabel.Size = UDim2.new(0, 199, 0, 30)
 TextLabel.Font = Enum.Font.Gotham
-TextLabel.Text = text
+TextLabel.PlaceholderColor3 = themes["TextColor"]
+TextLabel.PlaceholderText = text
+TextLabel.Text = ""
 TextLabel.TextColor3 = themes["TextColor"]
 TextLabel.TextSize = 17.000
 TextLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -783,6 +785,10 @@ end
 end
 end)
 
+txb.PlaceholderColor3 = themes["TextColor"]
+txb.PlaceholderText = place
+txb.Text = ""
+txb.TextColor3 = themes["TextColor"]
 
 arrow.Name = "arrow"
 arrow.Parent = dropdown
