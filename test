@@ -938,8 +938,8 @@ function sec:CreateNofitication(Title,Message,Duration)
 	wait(0.3) do
 	nofi:Destroy()
 	end
-  return tab;
 end
+  return tab;
 end
 end
 return Library;
