@@ -784,6 +784,7 @@ arrow.ImageColor3 = themes["Accent"]
 arrow.MouseButton1Click:Connect(function()
 	rotate(arrow,180,0.2)
 	drop:TweenSize(UDim2.new(1,0,0,100),"Out","Quint",0.2)
+	dropdown:TweenSize(UDim2.new(0,374,0,100 + 30),"Out","Quint",0.2)
 end)
 
 drop.Name = "drop"
@@ -819,6 +820,7 @@ button.TextWrapped = true
 		TextLabel.Text = button.Text
 		drop:TweenSize(UDim2.new(1,0,0,0),"Out","Quint",0.2)
 		rotate(arrow,0,0.2)
+		dropdown:TweenSize(UDim2.new(0,374,0,30),"Out","Quint",0.2)
 	end)
 end
 end
