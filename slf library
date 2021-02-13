@@ -744,7 +744,7 @@ end
 -- Instances:
 
 local dropdown = Instance.new("Frame")
-local TextLabel = Instance.new("TextLabel")
+local TextLabel = Instance.new("TextBox")
 local arrow = Instance.new("ImageButton")
 local drop = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
@@ -766,10 +766,23 @@ TextLabel.BorderSizePixel = 0
 TextLabel.Position = UDim2.new(0.0454545468, 0, 0, 0)
 TextLabel.Size = UDim2.new(0, 199, 0, 30)
 TextLabel.Font = Enum.Font.Gotham
+TextLabel.PlaceHolderText = ""
 TextLabel.Text = text
 TextLabel.TextColor3 = themes["TextColor"]
 TextLabel.TextSize = 17.000
 TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel.Focused:Connect(function()
+for i,v in next,drop:GetChildren() do
+if v.Name ~= "UIListLayout" then
+if v.Name:find(TextLabel.Text) then
+v.Visible = true
+else
+v.Visible = false
+end
+end
+end
+end)
+
 
 arrow.Name = "arrow"
 arrow.Parent = dropdown
@@ -785,6 +798,7 @@ arrow.MouseButton1Click:Connect(function()
 	drop:TweenSize(UDim2.new(1,0,0,100),"Out","Quint",0.2)
 	dropdown:TweenSize(UDim2.new(0,374,0,100 + 30),"Out","Quint",0.2)
 end)
+
 
 drop.Name = "drop"
 drop.Parent = dropdown
