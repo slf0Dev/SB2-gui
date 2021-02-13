@@ -748,7 +748,6 @@ local TextLabel = Instance.new("TextLabel")
 local arrow = Instance.new("ImageButton")
 local drop = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
-local button = Instance.new("TextButton")
 
 
 --Properties:
@@ -803,6 +802,8 @@ UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 
 function Library:AddChoice(textt,callback)
+local button = Instance.new("TextButton")
+
 button.Name = "d"
 button.Parent = drop
 button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
