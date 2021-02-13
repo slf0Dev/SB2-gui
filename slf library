@@ -811,7 +811,6 @@ drop.BackgroundTransparency = 1
 drop.BorderColor3 = themes["Accent"]
 drop.Position = UDim2.new(0.5, 0, 0, 20)
 drop.Size = UDim2.new(1, 0, 0, 0)
-drop.CanvasSize = UDim2.new(0, 0, 0, drpsize)
 drop.ScrollBarThickness = 4
 
 UIListLayout.Parent = drop
@@ -841,6 +840,7 @@ button.TextWrapped = true
 		rotate(arrow,0,0.2)
 		dropdown:TweenSize(UDim2.new(0,374,0,30),"Out","Quint",0.2)
 	end)
+	drop.CanvasSize = UDim2.new(0, 0, 0, drpsize)
 end
 end
 function Library:CreateNofitication(Title,Message,Duration)
