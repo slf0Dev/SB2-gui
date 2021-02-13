@@ -760,23 +760,23 @@ dropdown.BorderColor3 = themes["Accent"]
 dropdown.Position = UDim2.new(0.248999998, 0, 0.246999994, 0)
 dropdown.Size = UDim2.new(0, 374, 0, 30)
 
-TextLabel.Parent = dropdown
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.BorderSizePixel = 0
-TextLabel.Position = UDim2.new(0.0454545468, 0, 0, 0)
-TextLabel.Size = UDim2.new(0, 199, 0, 30)
-TextLabel.Font = Enum.Font.Gotham
-TextLabel.PlaceholderColor3 = themes["TextColor"]
-TextLabel.PlaceholderText = text
-TextLabel.Text = ""
-TextLabel.TextColor3 = themes["TextColor"]
-TextLabel.TextSize = 17.000
-TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-TextLabel.Focused:Connect(function()
+labe.Parent = dropdown
+labe.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+labe.BackgroundTransparency = 1.000
+labe.BorderSizePixel = 0
+labe.Position = UDim2.new(0.0454545468, 0, 0, 0)
+labe.Size = UDim2.new(0, 199, 0, 30)
+labe.Font = Enum.Font.Gotham
+labe.PlaceholderColor3 = themes["TextColor"]
+labe.PlaceholderText = text
+labe.Text = ""
+labe.TextColor3 = themes["TextColor"]
+labe.TextSize = 17.000
+labe.TextXAlignment = Enum.TextXAlignment.Left
+labe.Focused:Connect(function()
 for i,v in next,drop:GetChildren() do
 if v.Name ~= "UIListLayout" then
-if v.Name:find(TextLabel.Text) then
+if v.Name:find(labe.Text) then
 v.Visible = true
 else
 v.Visible = false
@@ -835,7 +835,7 @@ button.TextWrapped = true
 
 	button.MouseButton1Click:Connect(function()
 	callback(button.Text)
-		TextLabel.Text = button.Text
+		labe.Text = button.Text
 		drop:TweenSize(UDim2.new(1,0,0,0),"Out","Quint",0.2)
 		rotate(arrow,0,0.2)
 		dropdown:TweenSize(UDim2.new(0,374,0,30),"Out","Quint",0.2)
