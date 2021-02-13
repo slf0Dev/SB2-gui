@@ -798,10 +798,7 @@ local Choice = {}
 local TweenService = game:GetService("TweenService")
 
 
-script.Parent.MouseButton1Click:Connect(function()
-	rotate(script.Parent,180,0.2)
-	script.Parent.Parent.drop:TweenSize(UDim2.new(1,0,0,100),"Out","Quint",0.2)
-end)
+
 
 
 callback()
