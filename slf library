@@ -815,6 +815,7 @@ button.TextSize = 17.000
 button.TextWrapped = true
 
 	button.MouseButton1Click:Connect(function()
+	callback(button.Text)
 		TextLabel.Text = button.Text
 		drop:TweenSize(UDim2.new(1,0,0,0),"Out","Quint",0.2)
 		rotate(arrow,0,0.2)
