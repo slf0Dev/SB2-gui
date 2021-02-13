@@ -841,7 +841,7 @@ UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 function Library:AddChoice(textt,callback)
 local button = Instance.new("TextButton")
 
-button.Name = "d"
+button.Name = textt
 button.Parent = drop
 button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 button.BackgroundTransparency = 1.000
