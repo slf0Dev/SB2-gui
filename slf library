@@ -767,7 +767,6 @@ TextLabel.BorderSizePixel = 0
 TextLabel.Position = UDim2.new(0.0454545468, 0, 0, 0)
 TextLabel.Size = UDim2.new(0, 199, 0, 30)
 TextLabel.Font = Enum.Font.Gotham
-TextLabel.PlaceholderText = ""
 TextLabel.Text = text
 TextLabel.TextColor3 = themes["TextColor"]
 TextLabel.TextSize = 17.000
