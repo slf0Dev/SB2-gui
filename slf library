@@ -785,10 +785,6 @@ end
 end
 end)
 
-txb.PlaceholderColor3 = themes["TextColor"]
-txb.PlaceholderText = place
-txb.Text = ""
-txb.TextColor3 = themes["TextColor"]
 
 arrow.Name = "arrow"
 arrow.Parent = dropdown
