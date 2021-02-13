@@ -803,7 +803,7 @@ UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 
 function Library:AddChoice(textt,callback)
-button.Name = textt
+button.Name = "d"
 button.Parent = drop
 button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 button.BackgroundTransparency = 1.000
