@@ -793,6 +793,116 @@ function Library:CreateNofitication(Title,Message,Duration)
 	wait(0.3) do
 	nofi:Destroy()
 	end
+	function Library:CreateDropDown(text,canvas,callback)
+local Choice = {}
+local TweenService = game:GetService("TweenService")
+
+
+script.Parent.MouseButton1Click:Connect(function()
+	rotate(script.Parent,180,0.2)
+	script.Parent.Parent.drop:TweenSize(UDim2.new(1,0,0,100),"Out","Quint",0.2)
+end)
+
+
+
+
+
+local function textfade(Object,val,Delay)
+local ToTween = Object
+local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quint,Enum.EasingDirection.InOut,0,false,0)
+local Tweener = TweenService:Create(ToTween,tweenInfo,{TextTransparency = val})
+Tweener:Play()
+end
+
+local function rotate(Object,val,Delay)
+local ToTween = Object
+local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
+local Tweener = TweenService:Create(ToTween,tweenInfo,{Rotation = val})
+Tweener:Play()
+end
+
+
+-- Instances:
+
+local dropdown = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local arrow = Instance.new("ImageButton")
+local drop = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local button = Instance.new("TextButton")
+
+
+--Properties:
+
+dropdown.Name = "dropdown"
+dropdown.Parent = Container
+dropdown.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+dropdown.BorderColor3 = Color3.fromRGB(255, 255, 255)
+dropdown.Position = UDim2.new(0.248999998, 0, 0.246999994, 0)
+dropdown.Size = UDim2.new(0, 374, 0, 30)
+
+TextLabel.Parent = dropdown
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.0454545468, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 199, 0, 30)
+TextLabel.Font = Enum.Font.Gotham
+TextLabel.Text = text
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 17.000
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+arrow.Name = "arrow"
+arrow.Parent = dropdown
+arrow.BackgroundTransparency = 1.000
+arrow.Position = UDim2.new(0.919786096, 0, 0, 0)
+arrow.Size = UDim2.new(0, 30, 0, 30)
+arrow.Image = "rbxassetid://3926305904"
+arrow.ImageRectOffset = Vector2.new(44, 404)
+arrow.ImageRectSize = Vector2.new(36, 36)
+arrow.ImageColor3 = themes["Accent"]
+arrow.MouseButton1Click:Connect(function()
+	rotate(arrow,180,0.2)
+	drop:TweenSize(UDim2.new(1,0,0,100),"Out","Quint",0.2)
+end)
+
+drop.Name = "drop"
+drop.Parent = dropdown
+drop.Active = true
+drop.AnchorPoint = Vector2.new(0.5, 0)
+drop.BackgroundColor3 = themes["MainColor"]
+drop.BorderColor3 = Color3.fromRGB(255, 255, 255)
+drop.Position = UDim2.new(0.5, 0, 1, 0)
+drop.Size = UDim2.new(1, 0, 0, 0)
+drop.CanvasSize = UDim2.new(0, 0, 0, canvas)
+drop.ScrollBarThickness = 4
+
+UIListLayout.Parent = drop
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+function Choice:AddChoice(text,callback)
+button.Name = text
+button.Parent = drop
+button.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+button.BackgroundTransparency = 1.000
+button.BorderSizePixel = 0
+button.Size = UDim2.new(1, -42, 0, 25)
+button.Font = Enum.Font.Gotham
+button.Text = text
+button.TextColor3 = Color3.fromRGB(255, 255, 255)
+button.TextSize = 17.000
+button.TextWrapped = true
+
+	button.MouseButton1Click:Connect(function()
+		TextLabel.Text = button.Text
+		drop:TweenSize(UDim2.new(1,0,0,0),"Out","Quint",0.2)
+		rotate(arrow,0,0.2)
+	end)
+end
+return Choice;
+end
 end
 end
 end
