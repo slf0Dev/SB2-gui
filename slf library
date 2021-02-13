@@ -840,8 +840,8 @@ button.TextWrapped = true
 		rotate(arrow,0,0.2)
 		dropdown:TweenSize(UDim2.new(0,374,0,30),"Out","Quint",0.2)
 	end)
-	drop.CanvasSize = UDim2.new(0, 0, 0, drpsize)
 end
+	drop.CanvasSize = UDim2.new(0, 0, drpsize, 0)
 end
 function Library:CreateNofitication(Title,Message,Duration)
 	local nofi = Instance.new("ImageLabel")
