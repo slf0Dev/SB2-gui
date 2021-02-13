@@ -745,7 +745,7 @@ end
 -- Instances:
 
 local dropdown = Instance.new("Frame")
-local TextLabel = Instance.new("TextBox")
+local labe = Instance.new("TextBox")
 local arrow = Instance.new("ImageButton")
 local drop = Instance.new("ScrollingFrame")
 local UIListLayout = Instance.new("UIListLayout")
