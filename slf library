@@ -756,7 +756,7 @@ local button = Instance.new("TextButton")
 dropdown.Name = "dropdown"
 dropdown.Parent = Container
 dropdown.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
-dropdown.BorderColor3 = Color3.fromRGB(255, 255, 255)
+dropdown.BorderColor3 = themes["Accent"]
 dropdown.Position = UDim2.new(0.248999998, 0, 0.246999994, 0)
 dropdown.Size = UDim2.new(0, 374, 0, 30)
 
@@ -768,7 +768,7 @@ TextLabel.Position = UDim2.new(0.0454545468, 0, 0, 0)
 TextLabel.Size = UDim2.new(0, 199, 0, 30)
 TextLabel.Font = Enum.Font.Gotham
 TextLabel.Text = text
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextColor3 = themes["TextColor"]
 TextLabel.TextSize = 17.000
 TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -791,7 +791,7 @@ drop.Parent = dropdown
 drop.Active = true
 drop.AnchorPoint = Vector2.new(0.5, 0)
 drop.BackgroundColor3 = themes["MainColor"]
-drop.BorderColor3 = Color3.fromRGB(255, 255, 255)
+drop.BorderColor3 = themes["Accent"]
 drop.Position = UDim2.new(0.5, 0, 1, 0)
 drop.Size = UDim2.new(1, 0, 0, 0)
 drop.CanvasSize = UDim2.new(0, 0, 0, canvas)
@@ -810,7 +810,7 @@ button.BorderSizePixel = 0
 button.Size = UDim2.new(1, -42, 0, 25)
 button.Font = Enum.Font.Gotham
 button.Text = textt
-button.TextColor3 = Color3.fromRGB(255, 255, 255)
+button.TextColor3 = themes["TextColor"]
 button.TextSize = 17.000
 button.TextWrapped = true
 
