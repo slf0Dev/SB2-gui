@@ -818,7 +818,7 @@ UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 
 function Library:AddChoice(textt,callback)
-drpsize = drpsize + 20
+drpsize = drpsize + 500
 local button = Instance.new("TextButton")
 
 button.Name = "d"
