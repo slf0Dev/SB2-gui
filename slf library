@@ -723,8 +723,7 @@ hover.Size = UDim2.new(0, 0, 0, 1)
 end)
 
 end
-function Library:CreateDropDown(text)
-local drpsize = 0
+function Library:CreateDropDown(text,canvas)
 local TweenService = game:GetService("TweenService")
 
 local function textfade(Object,val,Delay)
@@ -782,7 +781,7 @@ labe.Focuses:Connect(function()
 shit(labe,themes["Accent"],0.2)
 end)
 labe.FocusLost:Connect(function()
-shit(labe,themes["TextColor3"],0.2)
+shit(labe,themes["TextColor"],0.2)
 for i,v in next,drop:GetChildren() do
 if v.Name ~= "UIListLayout" then
 if v.Name:find(labe.Text) then
@@ -819,6 +818,7 @@ drop.BackgroundColor3 = themes["MainColor"]
 drop.BackgroundTransparency = 1
 drop.BorderColor3 = themes["Accent"]
 drop.Position = UDim2.new(0.5, 0, 0, 20)
+drop.CanvasSize = UDim2.new(0, 0, 0, canvas)
 drop.Size = UDim2.new(1, 0, 0, 0)
 drop.ScrollBarThickness = 4
 
@@ -828,7 +828,6 @@ UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 
 function Library:AddChoice(textt,callback)
 drpsize = drpsize + 500
-drop.CanvasSize = UDim2.new(0, 0, drpsize, 0)
 local button = Instance.new("TextButton")
 
 button.Name = "d"
