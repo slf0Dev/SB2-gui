@@ -777,7 +777,7 @@ labe.Text = ""
 labe.TextColor3 = themes["TextColor"]
 labe.TextSize = 17.000
 labe.TextXAlignment = Enum.TextXAlignment.Left
-labe.Focuses:Connect(function()
+labe.Focused:Connect(function()
 shit(labe,themes["Accent"],0.2)
 end)
 labe.FocusLost:Connect(function()
@@ -827,7 +827,6 @@ UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 
 function Library:AddChoice(textt,callback)
-drpsize = drpsize + 500
 local button = Instance.new("TextButton")
 
 button.Name = "d"
@@ -849,6 +848,12 @@ button.TextWrapped = true
 		rotate(arrow,0,0.2)
 		dropdown:TweenSize(UDim2.new(0,374,0,30),"Out","Quint",0.2)
 	end)
+	button.MouseEnter:Connect(function()
+shit(button,themes["Accent"],0.2)
+end)
+	button.MouseLeave:Connect(function()
+shit(button,themes["TextColor"],0.2)
+end)
 end
 end
 function Library:CreateNofitication(Title,Message,Duration)
