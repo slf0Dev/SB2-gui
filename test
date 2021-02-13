@@ -939,7 +939,7 @@ function sec:CreateNofitication(Title,Message,Duration)
 	nofi:Destroy()
 	end
 end
-  return tab;
 end
+  return sex;
 end
 return Library;
