@@ -790,7 +790,7 @@ labe.FocusLost:Connect(function()
 shit(labe,themes["TextColor"],0.2)
 shitt(labe,themes["TextColor"],0.2)
 for i,v in next,drop:GetChildren() do
-if not v == "UIListLayout" and v.Text:find(labe.Text) then
+if v.Name ~= "UIListLayout" and v.Text:find(labe.Text) then
 v.Visible = true
 else
 v.Visible = false
