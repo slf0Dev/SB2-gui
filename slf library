@@ -745,7 +745,12 @@ local function shit(Object,col,Delay)
 	local Tweener = TweenService:Create(ToTween,tweenInfo,{TextColor3 = col})
 	Tweener:Play()
 end
-
+local function shitt(Object,col,Delay)
+	local ToTween = Object
+	local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
+	local Tweener = TweenService:Create(ToTween,tweenInfo,{PlaceholderColor3 = col})
+	Tweener:Play()
+end
 -- Instances:
 
 local dropdown = Instance.new("Frame")
@@ -779,9 +784,11 @@ labe.TextSize = 17.000
 labe.TextXAlignment = Enum.TextXAlignment.Left
 labe.Focused:Connect(function()
 shit(labe,themes["Accent"],0.2)
+shitt(labe,themes["Accent"],0.2)
 end)
 labe.FocusLost:Connect(function()
 shit(labe,themes["TextColor"],0.2)
+shitt(labe,themes["TextColor"],0.2)
 for i,v in next,drop:GetChildren() do
 if v.Name ~= "UIListLayout" then
 if v.Name:find(labe.Text) then
