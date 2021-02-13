@@ -791,6 +791,8 @@ shit(labe,themes["TextColor"],0.2)
 shitt(labe,themes["TextColor"],0.2)
 for i,v in next,drop:GetChildren() do
 if v.Text and v.Text:find(labe.Text) then
+v.Visible = true
+else
 v.Visible = false
 end
 end
