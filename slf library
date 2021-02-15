@@ -329,11 +329,11 @@ end
 		UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Top
 		UIListLayout_2.Padding = UDim.new(0, 6)
 tab.MouseEnter:Connect(function()
-shit(tab,themes["Accent"],0.2)
+shit(labe,themes["Accent"],0.2)
 end)
 tab.MouseLeave:Connect(function()
 if not toggle then
-shit(tab,themes["TextColor"],0.2)
+shit(labe,themes["TextColor"],0.2)
 end
 end)
 
