@@ -655,9 +655,18 @@ button.TextColor3 = themes["TextColor"]
 button.TextSize = 17.000
 button.TextXAlignment = Enum.TextXAlignment[Aligment]
 
+button.MouseEnter:Connect(function()
+shit(button,themes["Accent"],0.2)
+end)
+
+button.MouseLeave:Connect(function()
+shit(button,themes["TextColor"],0.2)
+end)
 
 button.MouseButton1Click:Connect(function()
 callback(button)
+shit(button,themes["Accent"],0.2)
+wait(.2)
 shit(button,themes["TextColor"],0.2)
 end)
 return button;
