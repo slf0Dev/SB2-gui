@@ -1,5 +1,5 @@
 local num = 0
-
+_G.Tab = 1
 local Library = {} 
 
 local TweenService = game:GetService("TweenService");
@@ -275,6 +275,7 @@ local Tabs = {}
 		ImageLabel.ImageRectOffset = Vector2.new(44, 644)
 		ImageLabel.ImageRectSize = Vector2.new(36, 36)
 		ImageLabel.ImageTransparency = 0.100
+		ImageLabel.Visible = false
 
 		label.Name = "label"
 		label.Parent = tab
@@ -338,6 +339,12 @@ end
 end)
 
 		tab.MouseButton1Click:Connect(function()
+		_G.Tab = num
+		if _G.Tab == num then
+		toggle = true
+		else
+		toggle = false
+		end
 UIPageLayout:JumpToIndex(currenttab)
 		end)
 		function insideTab:CreateLabel(Text,Aligment)
