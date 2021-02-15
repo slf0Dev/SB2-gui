@@ -16,6 +16,32 @@ local function colorB(Object,col,Delay)
 	Tweener:Play()
 end
 
+local function textfade(Object,val,Delay)
+local ToTween = Object
+local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quint,Enum.EasingDirection.InOut,0,false,0)
+local Tweener = TweenService:Create(ToTween,tweenInfo,{TextTransparency = val})
+Tweener:Play()
+end
+
+local function rotate(Object,val,Delay)
+local ToTween = Object
+local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
+local Tweener = TweenService:Create(ToTween,tweenInfo,{Rotation = val})
+Tweener:Play()
+end
+local function shit(Object,col,Delay)
+	local ToTween = Object
+	local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
+	local Tweener = TweenService:Create(ToTween,tweenInfo,{TextColor3 = col})
+	Tweener:Play()
+end
+local function shitt(Object,col,Delay)
+	local ToTween = Object
+	local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
+	local Tweener = TweenService:Create(ToTween,tweenInfo,{PlaceholderColor3 = col})
+	Tweener:Play()
+end
+
 themes = {
 ["MainColor"] = Color3.fromRGB(255,255,255),
 ["Accent"] = Color3.fromRGB(255,100,100),
@@ -289,24 +315,28 @@ local Tabs = {}
 		Container.Size = UDim2.new(0, 414, 0, 368)
 		Container.Visible = true
         Container.ScrollBarThickness = 4
+	local toggle = false
+if num == 1 then
+toggle = true
+else
+toggle = false
+end
+
 
 		UIListLayout_2.Parent = Container
 		UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
 		UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Top
 		UIListLayout_2.Padding = UDim.new(0, 6)
+tab.MouseEnter:Connect(function()
+shit(tab,themes["Accent"],0.2)
+end)
+tab.MouseLeave:Connect(function()
+if not toggle then
+shit(tab,themes["TextColor"],0.2)
+end
+end)
 
-		tab.MouseButton1Click:Connect(function()
-colorB(tab,themes["TabsListColor"],0.2)
-		end)
-		tab.MouseEnter:Connect(function()
-	colorB(tab,themes["MainColor"],0.2)
-		end)
-
-		tab.MouseLeave:Connect(function()
-	colorB(tab,themes["TabsListColor"],0.2)
-			end
-		end)
 		tab.MouseButton1Click:Connect(function()
 UIPageLayout:JumpToIndex(currenttab)
 		end)
@@ -714,31 +744,7 @@ end
 function insideTab:CreateDropDown(text,canvas)
 local TweenService = game:GetService("TweenService")
 
-local function textfade(Object,val,Delay)
-local ToTween = Object
-local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quint,Enum.EasingDirection.InOut,0,false,0)
-local Tweener = TweenService:Create(ToTween,tweenInfo,{TextTransparency = val})
-Tweener:Play()
-end
 
-local function rotate(Object,val,Delay)
-local ToTween = Object
-local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
-local Tweener = TweenService:Create(ToTween,tweenInfo,{Rotation = val})
-Tweener:Play()
-end
-local function shit(Object,col,Delay)
-	local ToTween = Object
-	local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
-	local Tweener = TweenService:Create(ToTween,tweenInfo,{TextColor3 = col})
-	Tweener:Play()
-end
-local function shitt(Object,col,Delay)
-	local ToTween = Object
-	local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
-	local Tweener = TweenService:Create(ToTween,tweenInfo,{PlaceholderColor3 = col})
-	Tweener:Play()
-end
 -- Instances:
 local choices = {}
 local dropdown = Instance.new("Frame")
