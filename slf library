@@ -767,7 +767,7 @@ local UIListLayout = Instance.new("UIListLayout")
 
 dropdown.Name = "dropdown"
 dropdown.Parent = Container
-dropdown.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+dropdown.BackgroundColor3 = themes["MainColor"]
 dropdown.BorderColor3 = themes["Accent"]
 dropdown.Position = UDim2.new(0.248999998, 0, 0.246999994, 0)
 dropdown.Size = UDim2.new(0, 374, 0, 30)
