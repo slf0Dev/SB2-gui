@@ -789,7 +789,7 @@ labe.Focused:Connect(function()
 shit(labe,themes["Accent"],0.2)
 shitt(labe,themes["Accent"],0.2)
 end)
-labe.FocusLost:Connect(function()
+labe.Changed:Connect(function()
 shit(labe,themes["TextColor"],0.2)
 shitt(labe,themes["TextColor"],0.2)
 for i,v in next,drop:GetChildren() do
