@@ -742,7 +742,7 @@ local function shitt(Object,col,Delay)
 	Tweener:Play()
 end
 -- Instances:
-
+local choices = {}
 local dropdown = Instance.new("Frame")
 local labe = Instance.new("TextBox")
 local arrow = Instance.new("ImageButton")
@@ -824,7 +824,7 @@ UIListLayout.Parent = drop
 UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 
-function insideTab:AddChoice(textt,callback)
+function choices:AddChoice(textt,callback)
 local button = Instance.new("TextButton")
 
 button.Name = textt
@@ -853,6 +853,7 @@ end)
 shit(button,themes["TextColor"],0.2)
 end)
 end
+return choice;
 end
 function insideTab:CreateNofitication(Title,Message,Duration)
 	local nofi = Instance.new("ImageLabel")
