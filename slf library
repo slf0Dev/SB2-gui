@@ -332,6 +332,7 @@ shit(label,themes["TextColor"],0.2)
 end)
 
 		tab.MouseButton1Click:Connect(function()
+		shit(label,themes["TextColor"],0.2)
 UIPageLayout:JumpToIndex(currenttab)
 		end)
 		function insideTab:CreateLabel(Text,Aligment)
@@ -347,6 +348,12 @@ UIPageLayout:JumpToIndex(currenttab)
 			label.TextColor3 = themes["TextColor"]
 			label.TextSize = 17.000
 			label.TextXAlignment = Enum.TextXAlignment[Aligment]
+label.MouseEnter:Connect(function()
+shit(label,themes["Accent"],0.2)
+end)
+label.MouseLeave:Connect(function()
+shit(label,themes["TextColor"],0.2)
+end)
 			return label;
 		end
 		
@@ -372,6 +379,12 @@ UIPageLayout:JumpToIndex(currenttab)
 			TextLabel.TextSize = 17.000
 			TextLabel.TextWrapped = true
 			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel.MouseEnter:Connect(function()
+shit(TextLabel,themes["Accent"],0.2)
+end)
+TextLabel.MouseLeave:Connect(function()
+shit(TextLabel,themes["TextColor"],0.2)
+end)
 
 			switch.Name = "switch"
 			switch.Parent = TextLabel
@@ -612,7 +625,7 @@ if enabled then
 				releaseconnection = uis.InputEnded:Connect(function(Mouse)
 					if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
 						sliding = false
-						color(progress,themes["TabsListColor"],0.2)
+						color(progress,ActualSliding.ImageColor3,0.2)
 						Value = math.floor((((tonumber(maxvalue) - tonumber(minvalue)) / ActualSliding.AbsoluteSize.X) * progress.AbsoluteSize.X) + tonumber(minvalue))
 						progress:TweenSize(UDim2.new(0, math.clamp(mouse.X - progress.AbsolutePosition.X, 0, ActualSliding.AbsoluteSize.X), 0, ActualSliding.AbsoluteSize.Y),"Out","Linear",0.1,true,nil)
 						SliderValuer.Text = Value .."  " .. suffix
@@ -644,41 +657,17 @@ button.TextXAlignment = Enum.TextXAlignment[Aligment]
 
 
 		button.MouseEnter:Connect(function()
-			for i = 1,10 do
-				button.BackgroundTransparency = button.BackgroundTransparency - 0.2
-				wait()
-			end
+colorB(button,themes["TabsListColor"],0.2)
+shit(button,themes["Accent"],0.2)
 		end)
 
 		button.MouseLeave:Connect(function()
-			for i = 1,10 do
-				button.BackgroundTransparency = button.BackgroundTransparency + 0.2
-				wait()
-			end
+colorB(button,themes["MainColor"],0.2)
+shit(button,themes["TextColor"],0.2)
 		end)
 button.MouseButton1Click:Connect(function()
 callback(button)
-			            local Rippler = Instance.new("ImageLabel")
-            Rippler.Parent = button
-			Rippler.Name = "Rippler"
-			Rippler.AnchorPoint = Vector2.new(0.5, 0.5)
-			Rippler.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Rippler.BackgroundTransparency = 1.000
-			local x,y = (ms.X - Rippler.AbsolutePosition.X) , (ms.Y - Rippler.AbsolutePosition.Y)
-			Rippler.Position = UDim2.new(0, x, 0, y)
-			Rippler.Image = "rbxassetid://3701391885"
-			Rippler.ImageColor3 = themes["Accent"]
-			Rippler.ImageTransparency = 0
-			Rippler:TweenSize(UDim2.new(1,100,1,100),"Out","Quint",0.3)
-			Rippler.ZIndex = 12
-			wait(0.1)
-			for i = 1,20 do
-				Rippler.ImageTransparency = Rippler.ImageTransparency + 0.1
-				wait()
-			end
-			wait(1) do
-			Rippler:Destroy()
-			end
+shit(button,themes["TextColor"],0.2)
 end)
 return button;
 end
