@@ -316,12 +316,7 @@ local Tabs = {}
 		Container.Size = UDim2.new(0, 414, 0, 368)
 		Container.Visible = true
         Container.ScrollBarThickness = 4
-	local toggle = false
-if num == 1 then
-toggle = true
-else
-toggle = false
-end
+
 
 
 		UIListLayout_2.Parent = Container
@@ -337,7 +332,6 @@ shit(label,themes["TextColor"],0.2)
 end)
 
 		tab.MouseButton1Click:Connect(function()
-shit(label,themes["TextColor"],0.2)
 UIPageLayout:JumpToIndex(currenttab)
 		end)
 		function insideTab:CreateLabel(Text,Aligment)
