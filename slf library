@@ -330,14 +330,14 @@ end
 		UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Top
 		UIListLayout_2.Padding = UDim.new(0, 6)
 tab.MouseEnter:Connect(function()
-shit(labe,themes["Accent"],0.2)
+shit(label,themes["Accent"],0.2)
 end)
 tab.MouseLeave:Connect(function()
-shit(labe,themes["TextColor"],0.2)
+shit(label,themes["TextColor"],0.2)
 end)
 
 		tab.MouseButton1Click:Connect(function()
-
+shit(label,themes["TextColor"],0.2)
 UIPageLayout:JumpToIndex(currenttab)
 		end)
 		function insideTab:CreateLabel(Text,Aligment)
