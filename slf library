@@ -643,7 +643,7 @@ local button = Instance.new("TextButton")
 button.Name = Text
 button.Parent = Container
 button.BackgroundColor3 = themes["TabsListColor"]
-button.BackgroundTransparency = 1.000
+button.BackgroundTransparency = 0
 button.BorderSizePixel = 0
 button.ClipsDescendants = true
 button.Size = UDim2.new(0, 374, 0, 36)
@@ -656,15 +656,6 @@ button.TextSize = 17.000
 button.TextXAlignment = Enum.TextXAlignment[Aligment]
 
 
-		button.MouseEnter:Connect(function()
-colorB(button,themes["TabsListColor"],0.2)
-shit(button,themes["Accent"],0.2)
-		end)
-
-		button.MouseLeave:Connect(function()
-colorB(button,themes["MainColor"],0.2)
-shit(button,themes["TextColor"],0.2)
-		end)
 button.MouseButton1Click:Connect(function()
 callback(button)
 shit(button,themes["TextColor"],0.2)
