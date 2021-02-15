@@ -1,5 +1,5 @@
 local num = 0
-_G.Tab = 1
+
 local Library = {} 
 
 local TweenService = game:GetService("TweenService");
@@ -333,18 +333,11 @@ tab.MouseEnter:Connect(function()
 shit(labe,themes["Accent"],0.2)
 end)
 tab.MouseLeave:Connect(function()
-if not toggle then
 shit(labe,themes["TextColor"],0.2)
-end
 end)
 
 		tab.MouseButton1Click:Connect(function()
-		_G.Tab = num
-		if _G.Tab == num then
-		toggle = true
-		else
-		toggle = false
-		end
+
 UIPageLayout:JumpToIndex(currenttab)
 		end)
 		function insideTab:CreateLabel(Text,Aligment)
