@@ -9,6 +9,12 @@ local function color(Object,col,Delay)
 	local Tweener = TweenService:Create(ToTween,tweenInfo,{ImageColor3 = col})
 	Tweener:Play()
 end
+local function colorB(Object,col,Delay)
+	local ToTween = Object
+	local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
+	local Tweener = TweenService:Create(ToTween,tweenInfo,{BackgroundColor3 = col})
+	Tweener:Play()
+end
 
 themes = {
 ["MainColor"] = Color3.fromRGB(255,255,255),
@@ -291,22 +297,14 @@ local Tabs = {}
 		UIListLayout_2.Padding = UDim.new(0, 6)
 
 		tab.MouseButton1Click:Connect(function()
-			          			for i = 1,10 do
-				tab.BackgroundTransparency = tab.BackgroundTransparency + 0.05
-				wait()
-			end 
+colorB(tab,themes["TabsListColor"],0.2)
 		end)
 		tab.MouseEnter:Connect(function()
-			for i = 1,10 do
-				tab.BackgroundTransparency = tab.BackgroundTransparency - 0.05
-				wait()
-			end
+	colorB(tab,themes["MainColor"],0.2)
 		end)
 
 		tab.MouseLeave:Connect(function()
-			for i = 1,10 do
-				tab.BackgroundTransparency = tab.BackgroundTransparency + 0.05
-				wait()
+	colorB(tab,themes["TabsListColor"],0.2)
 			end
 		end)
 		tab.MouseButton1Click:Connect(function()
