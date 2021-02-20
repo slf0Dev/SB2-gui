@@ -501,7 +501,7 @@ tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,50)
     SliderNamer.Size = UDim2.new(0, 95, 0, 20)
     SliderNamer.ZIndex = 3
     SliderNamer.Font = Enum.Font.GothamBold
-    SliderNamer.Text = "slider"
+    SliderNamer.Text = Name
     SliderNamer.TextColor3 = Color3.fromRGB(255, 255, 255)
     SliderNamer.TextSize = 17.000
     SliderNamer.TextXAlignment = Enum.TextXAlignment.Left
@@ -783,10 +783,8 @@ end)
 			
 			PressFrame.MouseButton1Down:Connect(function()
 		if not toggle then
-			toggle = true
 			callback(toggle)
 			else
-			toggle = false
 callback(toggle)		
 			end
 			end)
@@ -794,6 +792,14 @@ callback(toggle)
 	
 PressFrame.MouseEnter:Connect(function()
 	color(checkbox,150,0,255,0.2)
+	end)
+	
+	PressFrame.MouseLeave:Connect(function()
+	if toggle then
+	color(checkbox,150,0,255,0.2)
+	else
+	color(checkbox,150,150,150,0.2)
+	end
 	end)
 	
 	return checkBox
