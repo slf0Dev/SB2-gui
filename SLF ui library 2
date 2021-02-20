@@ -9,6 +9,7 @@ end
 local ms = game.Players.LocalPlayer:GetMouse()
 local num = 0
 local Library = {}
+print("yo")
 for i,v in next,game.CoreGui:GetChildren() do
     if v.Name == "nofitication" or v.Name == "library" then
         v:Destroy()
