@@ -697,9 +697,9 @@ Samplee.ImageColor3 = Color3.fromRGB(150,0,255)
 Samplee.ImageTransparency = 0.400
 
 if toggled.Value == true then
-checked.ImageTransparency = 0
-inner.ImageColor3 = Color3.fromRGB(150,0,255)
-checkbox.ImageColor3 = Color3.fromRGB(150,0,255)
+		color(checkbox,150,0,255,0.3)
+			color(inner,150,0,255,0.2)
+			fade(checked,0,0.3)
 end
 
 	local function color(Object,R,G,B,Delay)
