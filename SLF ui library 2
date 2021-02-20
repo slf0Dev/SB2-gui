@@ -815,9 +815,9 @@ checkbox.MouseLeave:Connect(function()
 	return checkBox
 end
 
-    return Inside,tabbtn
+    return Inside
 end
-return Tabs,topb
+return Tabs
 end
 return Library
 
