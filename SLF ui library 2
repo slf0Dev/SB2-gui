@@ -6,6 +6,12 @@ local function fade(Object,col,Delay)
     local Tweener = TweenService:Create(ToTween,tweenInfo,{ImageTransparency = col})
     Tweener:Play()
 end
+local function colour(Object,col,Delay)
+    local ToTween = Object
+    local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.Out,0,false,0)
+    local Tweener = TweenService:Create(ToTween,tweenInfo,{ImageColor3 = col})
+    Tweener:Play()
+end
 local ms = game.Players.LocalPlayer:GetMouse()
 local num = 0
 local Library = {}
@@ -313,7 +319,10 @@ tab1.BorderSizePixel = 0
 tab1.Size = UDim2.new(1, 0, 1, 0)
 tab1.Visible = true
 tab1.CanvasSize = UDim2.new(0,0,0,100)
-
+local toggled = Instance.new("BoolValue"tab1)
+if num == 1 then
+toggled.Value = true
+end
 Frame_2.Parent = tab1
 Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Frame_2.BackgroundTransparency = 1
@@ -333,7 +342,7 @@ btncorner.Parent = containers
 tabbtn.Name = "tabbtn"
 tabbtn.Parent = tabsList
 tabbtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-tabbtn.BackgroundTransparency = 0.97
+tabbtn.BackgroundTransparency = 0
 tabbtn.BorderSizePixel = 0
 tabbtn.ClipsDescendants = true
 tabbtn.Position = UDim2.new(0.233890221, 0, 0.35426715, 0)
@@ -341,11 +350,11 @@ tabbtn.Size = UDim2.new(1, -10, 0, 40)
 tabbtn.ZIndex = 2
 tabbtn.AutoButtonColor = false
 tabbtn.Font = Enum.Font.GothamBold
-tabbtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+tabbtn.TextColor3 = Color3.fromRGB(40,40,40)
 tabbtn.TextSize = 17.000
 tabbtn.Text = name
 
-UICorner.CornerRadius = UDim.new(0, 10)
+UICorner.CornerRadius = UDim.new(0, 0)
 UICorner_4.Parent = tabbtn
 
 Sample.Name = "Sample"
@@ -372,6 +381,12 @@ local helding = false
 	
 	tabbtn.MouseButton1Down:Connect(function()
 	    UIPageLayout:JumpToIndex(tab)
+	    toggled.Value = true
+	    for i,v in next,tabsList:GetChildren() do
+	    if v:FindFirstChild("Value") and Value.Value == false then
+	    Colour(v,Color3.fromRGB(40,40,40),0.3)
+	    end
+	    end
 if not helding then
     helding = true
     timee = 2
