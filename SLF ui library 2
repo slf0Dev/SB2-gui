@@ -712,15 +712,7 @@ end
 end
 
 	local Size = UDim2.new(1,15,1,15)
-	function OnClick()
-		local c = Samplee:Clone()
-		c.Parent = checkbox
-		c.Position = UDim2.new(0.5,0,0.5,0)
-		c:TweenSize(Size,"Out","Quad",0.3)
-		fade(c,1,0.6)
-		wait(0.6)
-		c:Destroy()
-	end
+
 	local btn = PressFrame
 	local toggle = false
 	
@@ -770,14 +762,13 @@ PressFrame.MouseButton1Click:Connect(function()
 		color(checkbox,150,0,255,0.3)
 			color(inner,150,0,255,0.2)
 			fade(checked,0,0.3)
-			OnClick()
+						callback(toggle)
 		else if toggle then
 			toggle = false
-			callback(toggle)
 			color(checkbox,150,150,150,0.3)
 				color(inner,30,30,30,0.2)
 				fade(checked,1,0.3)
-				OnClick()
+							callback(toggle)
 			end
 		end
 end)
