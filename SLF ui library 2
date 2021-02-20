@@ -761,13 +761,13 @@ PressFrame.MouseButton1Click:Connect(function()
 		color(checkbox,150,0,255,0.3)
 			color(inner,150,0,255,0.2)
 			fade(checked,0,0.3)
-						callback(toggle)
+			callback(toggle)
 		else if toggle then
 			toggle = false
 			color(checkbox,150,150,150,0.3)
 				color(inner,30,30,30,0.2)
 				fade(checked,1,0.3)
-							callback(toggle)
+				callback(toggle)
 			end
 		end
 end)
