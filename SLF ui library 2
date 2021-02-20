@@ -293,8 +293,8 @@ UIPageLayout.TweenTime = 0.5
 local Tabs = {}
 function Tabs:AddTab(name)
 local Inside = {}
+local tab = num
 num = num + 1
-local tab = num + 1
 local UIListLayout_2 = Instance.new("UIListLayout")
 local UICorner_4 = Instance.new("UICorner")
 local tab1 = Instance.new("ScrollingFrame")
