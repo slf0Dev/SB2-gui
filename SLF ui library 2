@@ -765,14 +765,12 @@ if not helding then
 PressFrame.MouseButton1Down:Connect(function()
 		if not toggle then
 			toggle = true
-			callback(toggle)
 		color(checkbox,150,0,255,0.3)
 			color(inner,150,0,255,0.2)
 			fade(checked,0,0.3)
 			OnClick()
 		else if toggle then
 				toggle = false
-				callback(toggle)
 			color(checkbox,150,150,150,0.3)
 				color(inner,30,30,30,0.2)
 				fade(checked,1,0.3)
@@ -785,13 +783,22 @@ checkbox.MouseButton1Down:Connect(function()
 		if not toggle then
 			toggle = true
 			callback(toggle)
+			else
+			toggle = false
+callback(toggle)		
+			end
+			end)
+
+checkbox.MouseButton1Down:Connect(function()
+		if not toggle then
+			toggle = true
+
 		color(checkbox,150,0,255,0.3)
 			color(inner,150,0,255,0.2)
 			fade(checked,0,0.3)
 			OnClick()
 		else if toggle then
 				toggle = false
-				callback(toggle)
 			color(checkbox,150,150,150,0.3)
 				color(inner,30,30,30,0.2)
 				fade(checked,1,0.3)
