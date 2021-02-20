@@ -489,7 +489,6 @@ tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,50)
     slider.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
     slider.BackgroundTransparency = 1.000
     slider.BorderColor3 = Color3.fromRGB(122, 122, 122)
-    slider.LayoutOrder = -1
     slider.Position = UDim2.new(0.0250000004, 0, 0.5, 0)
     slider.Size = UDim2.new(1, -40, 0, 52)
     slider.ZIndex = 2
