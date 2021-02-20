@@ -385,7 +385,7 @@ local btn = Instance.new("TextButton")
 local Sample = Instance.new("ImageLabel")
 local btnCorn = Instance.new("UICorner")
 
-tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,35)
+tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,40)
 
 btn.Name = "btn"
 btn.Parent = tab1
@@ -584,7 +584,7 @@ tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,50)
         
 end
 function Inside:AddCheckBox(Name,callback)
-tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,35)
+tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,50)
 local checkBox = Instance.new("TextLabel")
 local Sample = Instance.new("ImageLabel")
 local Samplee = Instance.new("ImageLabel")
