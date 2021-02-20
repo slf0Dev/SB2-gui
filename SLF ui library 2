@@ -757,7 +757,6 @@ if not helding then
 PressFrame.MouseButton1Click:Connect(function()
 		if not toggle then
 			toggle = true
-			callback(toggle)
 		color(checkbox,150,0,255,0.3)
 			color(inner,150,0,255,0.2)
 			fade(checked,0,0.3)
