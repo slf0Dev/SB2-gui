@@ -607,7 +607,8 @@ local inner = Instance.new("ImageLabel")
 local checked = Instance.new("ImageLabel")
 local btnCorn = Instance.new("UICorner")
 local PressFrame = Instance.new("TextButton")	
-	
+local toggled = Instance.new("BoolValue",checkbox)
+toggled.Value = false
 btnCorn.CornerRadius = UDim.new(0, 10)
 btnCorn.Parent = checkBox
 
@@ -713,7 +714,6 @@ end
 	local Size = UDim2.new(1,15,1,15)
 
 	local btn = PressFrame
-	local toggle = false
 	
 		local timee = 0.6
 	
@@ -755,18 +755,18 @@ if not helding then
 	end)
 	
 PressFrame.MouseButton1Click:Connect(function()
-		if not toggle then
-			toggle = true
+		if toggled.Value == false then
+			toggled.Value = true
 		color(checkbox,150,0,255,0.3)
 			color(inner,150,0,255,0.2)
 			fade(checked,0,0.3)
-			callback(toggle)
-		else if toggle then
-			toggle = false
+			callback(toggled.Value)
+		else if toggled.Value == true then
+			toggled.Value = false
 			color(checkbox,150,150,150,0.3)
 				color(inner,30,30,30,0.2)
 				fade(checked,1,0.3)
-				callback(toggle)
+				callback(toggled.Value)
 			end
 		end
 end)
@@ -776,7 +776,7 @@ PressFrame.MouseEnter:Connect(function()
 	end)
 	
 	PressFrame.MouseLeave:Connect(function()
-	if toggle then
+	if toggled.Value == true then
 	color(checkbox,150,0,255,0.2)
 	else
 	color(checkbox,150,150,150,0.2)
