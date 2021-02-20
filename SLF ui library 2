@@ -1,0 +1,807 @@
+local TweenService = game:GetService("TweenService")
+	local uis = game:GetService("UserInputService")
+local function fade(Object,col,Delay)
+    local ToTween = Object
+    local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.Out,0,false,0)
+    local Tweener = TweenService:Create(ToTween,tweenInfo,{ImageTransparency = col})
+    Tweener:Play()
+end
+local ms = game.Players.LocalPlayer:GetMouse()
+local num = 0
+local Library = {}
+for i,v in next,game.CoreGui:GetChildren() do
+    if v.Name == "nofitication" or v.Name == "library" then
+        v:Destroy()
+        end
+    end
+
+local Nofi = Instance.new("ScreenGui")
+local lay = Instance.new("UIListLayout")
+local popupContainers = Instance.new("Frame",Nofi)
+
+
+Nofi.Name = "nofitication"
+Nofi.Parent = game.CoreGui
+
+popupContainers.Name = "containers"
+popupContainers.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+popupContainers.BackgroundTransparency = 1
+popupContainers.BorderSizePixel = 0
+popupContainers.ClipsDescendants = false
+popupContainers.Position = UDim2.new(0.70, 0, 0.7, 0)
+popupContainers.Size = UDim2.new(0, 800, 0, 100)
+popupContainers.Visible = true
+
+lay.Parent = popupContainers
+lay.SortOrder = Enum.SortOrder.LayoutOrder
+lay.HorizontalAlignment = Enum.HorizontalAlignment.Left
+lay.VerticalAlignment = Enum.VerticalAlignment.Bottom
+lay.Padding = UDim.new(0, 30)
+
+function Library:Nofitication(hohoho,text,delay)
+local popupCon = Instance.new("Frame",popupContainers)
+local popup = Instance.new("Frame",popupCon)
+local lol = Instance.new("TextLabel",popup)
+local lol2 = Instance.new("TextLabel",popup)
+popupCon.Name = "containers"
+popupCon.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+popupCon.BackgroundTransparency = 1
+popupCon.BorderSizePixel = 0
+popupCon.ClipsDescendants = false
+popupCon.Position = UDim2.new(0, 0, 0, 0)
+popupCon.Size = UDim2.new(0, 500, 0, 100)
+popupCon.Visible = true
+
+
+
+popup.Name = "lol"
+popup.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+popup.BorderSizePixel = 0
+popup.ClipsDescendants = true
+popup.Position = UDim2.new(1, 0, 0, 0)
+popup.Size = UDim2.new(0, 400, 0, 100)
+
+lol.Name = "ann"
+lol.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+lol.BackgroundTransparency = 1.000
+lol.BorderSizePixel = 0
+lol.Position = UDim2.new(0, 0, 0, 0)
+lol.Size = UDim2.new(1, 0, 0, 33)
+lol.Font = Enum.Font.GothamBold
+lol.Text = hohoho
+lol.TextColor3 = Color3.fromRGB(170,170,170)
+lol.TextSize = 20.000
+
+lol2.Name = "ann"
+lol2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+lol2.BackgroundTransparency = 1.000
+lol2.BorderSizePixel = 0
+lol2.Position = UDim2.new(0, 25, 0, 40)
+lol2.Size = UDim2.new(1, 0, 0, 33)
+lol2.Font = Enum.Font.Gotham
+lol2.Text = text
+lol2.TextColor3 = Color3.fromRGB(128, 128, 128)
+lol2.TextSize = 20.000
+lol2.TextXAlignment = Enum.TextXAlignment.Left
+
+local ToGo = UDim2.new(0.1,0,0,0)
+local ToBack = UDim2.new(1,0,0,0)
+popup:TweenPosition(ToGo,"Out","Back",0.4)
+wait(delay)
+popup:TweenPosition(ToBack,"In","Back",0.4)
+wait(0.4)
+popupCon:Destroy()
+end
+
+function Library:CreateMain(name,gamenamee,key)
+local library = Instance.new("ScreenGui")
+local topb = Instance.new("Frame")
+local Main = Instance.new("Frame")
+local tabsList = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+local Frame = Instance.new("Frame")
+local nick = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local nick_2 = Instance.new("Frame")
+local guiname = Instance.new("TextLabel")
+local gamename = Instance.new("TextLabel")
+local hidekiey = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local UICorner = Instance.new("UICorner")
+local containers = Instance.new("Frame")
+local UIPageLayout = Instance.new("UIPageLayout")
+
+local UserInputService = game:GetService("UserInputService")
+
+local gui = topb
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+local off = Vector3.new(5,5,0)
+local function update(input)
+	local delta = input.Position + off - dragStart
+	gui:TweenPosition(UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y),"Out","Quart",0.15,true,nil)
+end
+
+gui.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = gui.Position + UDim2.new(0,5,0,5)
+
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+gui.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+		dragInput = input
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		update(input)
+	end
+end)
+
+--Properties:
+
+library.Name = "library"
+library.Parent = game.CoreGui
+
+topb.Name = "topb"
+topb.Parent = library
+topb.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+topb.BorderSizePixel = 0
+topb.BackgroundTransparency = 1
+topb.ClipsDescendants = false
+topb.Position = UDim2.new(0.252427191, 0, 0.154764652, 0)
+topb.Size = UDim2.new(0, 740, 0, 46)
+topb.Active = true
+
+Main.Name = "Main"
+Main.Parent = topb
+Main.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+Main.BorderSizePixel = 0
+Main.ClipsDescendants = true
+Main.Position = UDim2.new(0,0,0,0)
+Main.Size = UDim2.new(0, 740, 0, 459)
+Main.Active = true
+
+tabsList.Name = "tabsList"
+tabsList.Parent = Main
+tabsList.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+tabsList.BorderSizePixel = 0
+tabsList.ClipsDescendants = true
+tabsList.Position = UDim2.new(0, 0, 0.100217864, 0)
+tabsList.Size = UDim2.new(0, 154, 0, 412)
+
+UIListLayout.Parent = tabsList
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.Padding = UDim.new(0, 3)
+
+UICorner.CornerRadius = UDim.new(0, 10)
+UICorner.Parent = tabsList
+
+Frame.Parent = tabsList
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 1.000
+Frame.BorderSizePixel = 0
+Frame.LayoutOrder = -999999999
+Frame.Size = UDim2.new(0, 100, 0, 5)
+
+nick.Name = "nick"
+nick.Parent = Main
+nick.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+nick.BorderSizePixel = 0
+nick.Size = UDim2.new(0, 607, 0, 46)
+
+UICorner_2.CornerRadius = UDim.new(0, 10)
+UICorner_2.Parent = nick
+
+nick_2.Name = "nick"
+nick_2.Parent = nick
+nick_2.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+nick_2.BorderSizePixel = 0
+nick_2.ClipsDescendants = true
+nick_2.Position = UDim2.new(0, 0, 0.548386931, 0)
+nick_2.Size = UDim2.new(0, 154, 0, 28)
+
+guiname.Name = "gui name"
+guiname.Parent = nick
+guiname.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+guiname.BackgroundTransparency = 1.000
+guiname.BorderSizePixel = 0
+guiname.Position = UDim2.new(0, 0, 0.0161290467, 0)
+guiname.Size = UDim2.new(0, 147, 0, 33)
+guiname.Font = Enum.Font.GothamBold
+guiname.Text = name
+guiname.TextColor3 = Color3.fromRGB(255, 255, 255)
+guiname.TextSize = 20.000
+
+gamename.Name = "game name"
+gamename.Parent = nick
+gamename.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+gamename.BackgroundTransparency = 1.000
+gamename.BorderSizePixel = 0
+gamename.Position = UDim2.new(0, 0, 0.323000014, 6)
+gamename.Size = UDim2.new(0, 147, 0, 27)
+gamename.Font = Enum.Font.GothamBold
+gamename.Text = gamenamee
+gamename.TextColor3 = Color3.fromRGB(115, 115, 115)
+gamename.TextSize = 15.000
+
+hidekiey.Name = "hidekiey"
+hidekiey.Parent = nick
+hidekiey.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+hidekiey.BackgroundTransparency = 1.000
+hidekiey.BorderSizePixel = 0
+hidekiey.Position = UDim2.new(0.787603068, 0, 0.496913075, 3)
+hidekiey.Size = UDim2.new(0, 274, 0, 27)
+hidekiey.Font = Enum.Font.GothamBold
+hidekiey.Text = "Press { " .. key .. " } to hide gui"
+hidekiey.TextColor3 = Color3.fromRGB(115, 115, 115)
+hidekiey.TextSize = 15.000
+hidekiey.TextStrokeColor3 = Color3.fromRGB(255, 0, 0)
+hidekiey.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_3.CornerRadius = UDim.new(0, 10)
+UICorner_3.Parent = Main
+
+containers.Name = "containers"
+containers.Parent = Main
+containers.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+containers.BorderColor3 = Color3.fromRGB(27, 42, 53)
+containers.BorderSizePixel = 0
+containers.ClipsDescendants = true
+containers.Position = UDim2.new(0.208108112, 0, 0.115960345, 0)
+containers.Size = UDim2.new(0, 586, 0, 403)
+
+UIPageLayout.Parent = containers
+UIPageLayout.FillDirection = Enum.FillDirection.Vertical
+UIPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIPageLayout.GamepadInputEnabled = false
+UIPageLayout.ScrollWheelInputEnabled = false
+UIPageLayout.TouchInputEnabled = false
+UIPageLayout.EasingStyle = "Quad"
+UIPageLayout.EasingDirection = "Out"
+UIPageLayout.TweenTime = 0.5
+
+
+local Tabs = {}
+function Tabs:AddTab(name)
+local Inside = {}
+num = num + 1
+local tab = num + 1
+local UIListLayout_2 = Instance.new("UIListLayout")
+local UICorner_4 = Instance.new("UICorner")
+local tab1 = Instance.new("ScrollingFrame")
+local Frame_2 = Instance.new("Frame")
+
+local tabbtn = Instance.new("TextButton")
+local Sample = Instance.new("ImageLabel")
+local btncorner = Instance.new("UICorner")
+
+tab1.Name = name
+tab1.Parent = containers
+tab1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+tab1.BackgroundTransparency = 1
+tab1.BorderSizePixel = 0
+tab1.Size = UDim2.new(1, 0, 1, 0)
+tab1.Visible = true
+tab1.CanvasSize = UDim2.new(0,0,0,0)
+
+Frame_2.Parent = tab1
+Frame_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_2.BackgroundTransparency = 1
+Frame_2.BorderSizePixel = 0
+Frame_2.LayoutOrder = -999999999
+Frame_2.Size = UDim2.new(0, 100, 0, 5)
+
+UIListLayout_2.Parent = tab1
+UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout_2.Padding = UDim.new(0, 5)
+
+btncorner.CornerRadius = UDim.new(0, 10)
+btncorner.Parent = containers
+
+
+tabbtn.Name = "tabbtn"
+tabbtn.Parent = tabsList
+tabbtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabbtn.BackgroundTransparency = 0.97
+tabbtn.BorderSizePixel = 0
+tabbtn.ClipsDescendants = true
+tabbtn.Position = UDim2.new(0.233890221, 0, 0.35426715, 0)
+tabbtn.Size = UDim2.new(1, -10, 0, 40)
+tabbtn.ZIndex = 2
+tabbtn.AutoButtonColor = false
+tabbtn.Font = Enum.Font.GothamBold
+tabbtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+tabbtn.TextSize = 17.000
+tabbtn.Text = name
+
+UICorner.CornerRadius = UDim.new(0, 10)
+UICorner_4.Parent = tabbtn
+
+Sample.Name = "Sample"
+Sample.Parent = tabbtn
+Sample.BackgroundColor3 = Color3.fromRGB(150,0,255)
+Sample.BackgroundTransparency = 1.000
+Sample.ZIndex = 12
+Sample.ImageColor3 = Color3.fromRGB(150,0,255)
+Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
+Sample.ImageTransparency = 0.100
+
+	local timee = 0.6
+	
+	
+local helding = false
+	tabbtn.MouseLeave:Connect(function()
+	        helding = false
+    timee = 0.6
+	    end)
+	tabbtn.MouseButton1Up:Connect(function()
+    helding = false
+    timee = 0.6
+	end)
+	
+	tabbtn.MouseButton1Down:Connect(function()
+	    UIPageLayout:JumpToIndex(tab)
+if not helding then
+    helding = true
+    timee = 2
+		local c = Sample:Clone()
+		c.Parent = tabbtn
+		local x, y = (ms.X - c.AbsolutePosition.X), (ms.Y - c.AbsolutePosition.Y)
+		c.Position = UDim2.new(0, x, 0, y)
+		local len, size = 0.6, nil
+		if tabbtn.AbsoluteSize.X >= tabbtn.AbsoluteSize.Y then
+			size = (tabbtn.AbsoluteSize.X * 1)
+		else
+			size = (tabbtn.AbsoluteSize.Y * 2)
+		end
+		c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', timee, true, nil)
+		repeat wait() until helding == false
+		c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', timee, true, nil)
+				fade(c,1,timee - 0.1)
+		wait(2) do
+			c:Destroy()
+		end
+		end
+	end)
+	
+function Inside:AddButton(Name,callback)
+local btn = Instance.new("TextButton")
+local Sample = Instance.new("ImageLabel")
+local btnCorn = Instance.new("UICorner")
+
+tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,60)
+
+btn.Name = "btn"
+btn.Parent = tab1
+btn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+btn.BackgroundTransparency = 0.97
+btn.BorderSizePixel = 0
+btn.ClipsDescendants = true
+btn.Position = UDim2.new(0.233890221, 0, 0.35426715, 0)
+btn.Size = UDim2.new(1, -30, 0, 40)
+btn.ZIndex = 2
+btn.AutoButtonColor = false
+btn.Font = Enum.Font.GothamBold
+btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+btn.TextSize = 17.000
+btn.Text = Name
+
+btnCorn.CornerRadius = UDim.new(0, 10)
+btnCorn.Parent = btn
+
+
+Sample.Name = "Sample"
+Sample.Parent = tabbtn
+Sample.BackgroundColor3 = Color3.fromRGB(150,0,255)
+Sample.BackgroundTransparency = 1.000
+Sample.ZIndex = 12
+Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
+Sample.ImageColor3 = Color3.fromRGB(150,0,255)
+Sample.ImageTransparency = 0.400
+
+	local timee = 0.6
+	
+	btn.MouseLeave:Connect(function()
+    helding = false
+    timee = 0.6
+	end)
+	
+	btn.MouseButton1Click:Connect(function()
+			callback()
+	end)
+	
+local helding = false
+	
+	btn.MouseButton1Up:Connect(function()
+    helding = false
+    timee = 0.6
+	end)
+	
+	btn.MouseButton1Down:Connect(function()
+if not helding then
+    helding = true
+    timee = 2
+		local c = Sample:Clone()
+		c.Parent = btn
+		local x, y = (ms.X - c.AbsolutePosition.X), (ms.Y - c.AbsolutePosition.Y)
+		c.Position = UDim2.new(0, x, 0, y)
+		local len, size = 0.6, nil
+		if btn.AbsoluteSize.X >= btn.AbsoluteSize.Y then
+			size = (btn.AbsoluteSize.X * 1)
+		else
+			size = (btn.AbsoluteSize.Y * 0.7)
+		end
+		c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', timee, true, nil)
+		repeat wait() until helding == false
+		c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', timee, true, nil)
+				fade(c,1,timee - 0.1)
+		wait(2) do
+			c:Destroy()
+		end
+		end
+	end)
+end
+function Inside:AddSlider(Name,min,max,def,suffix,callback)
+
+tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,60)
+    local slider = Instance.new("Frame")
+    local SliderNamer = Instance.new("TextLabel")
+    local ActualSliding = Instance.new("ImageButton")
+    local progress = Instance.new("ImageLabel")
+    local Frame = Instance.new("ImageLabel")
+    local SliderValuer = Instance.new("TextLabel")
+    
+    
+    
+    slider.Name = "slider"
+    slider.Parent = tab1
+    slider.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+    slider.BackgroundTransparency = 1.000
+    slider.BorderColor3 = Color3.fromRGB(122, 122, 122)
+    slider.LayoutOrder = -1
+    slider.Position = UDim2.new(0.0250000004, 0, 0.5, 0)
+    slider.Size = UDim2.new(1, -40, 0, 52)
+    slider.ZIndex = 2
+    
+    SliderNamer.Name = "SliderNamer"
+    SliderNamer.Parent = slider
+    SliderNamer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    SliderNamer.BackgroundTransparency = 1.000
+    SliderNamer.Position = UDim2.new(-0.000812858343, 0, -0.274230778, 15)
+    SliderNamer.Size = UDim2.new(0, 95, 0, 20)
+    SliderNamer.ZIndex = 3
+    SliderNamer.Font = Enum.Font.GothamBold
+    SliderNamer.Text = "slider"
+    SliderNamer.TextColor3 = Color3.fromRGB(255, 255, 255)
+    SliderNamer.TextSize = 17.000
+    SliderNamer.TextXAlignment = Enum.TextXAlignment.Left
+    
+    ActualSliding.Name = "ActualSliding"
+    ActualSliding.Parent = slider
+    ActualSliding.AnchorPoint = Vector2.new(0.5, 0.5)
+    ActualSliding.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    ActualSliding.BackgroundTransparency = 1.000
+    ActualSliding.BorderSizePixel = 0
+    ActualSliding.Position = UDim2.new(0.5, 0, 0.5, 15)
+    ActualSliding.Size = UDim2.new(1, 0, 0, 5)
+    ActualSliding.ZIndex = 2
+    ActualSliding.Image = "rbxassetid://3570695787"
+    ActualSliding.ImageColor3 = Color3.fromRGB(94, 94, 94)
+    ActualSliding.ScaleType = Enum.ScaleType.Slice
+    ActualSliding.SliceCenter = Rect.new(100, 100, 100, 100)
+    ActualSliding.SliceScale = 0.040
+    
+    progress.Name = "progress"
+    progress.Parent = ActualSliding
+    progress.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    progress.BackgroundTransparency = 1.000
+    progress.Size = UDim2.new(0.100000001, 0, 0, 5)
+    progress.ZIndex = 2
+    progress.Image = "rbxassetid://3570695787"
+    progress.ImageColor3 = Color3.fromRGB(150,0,255)
+    progress.ScaleType = Enum.ScaleType.Slice
+    progress.SliceCenter = Rect.new(100, 100, 100, 100)
+    progress.SliceScale = 0.040
+    
+    Frame.Name = "Frame"
+    Frame.Parent = progress
+    Frame.AnchorPoint = Vector2.new(0, 0.5)
+    Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    Frame.BackgroundTransparency = 1.000
+    Frame.Position = UDim2.new(1, 0, 0.5, 0)
+    Frame.Size = UDim2.new(0, 12, 0, 12)
+    Frame.ZIndex = 4
+    Frame.Image = "rbxassetid://3570695787"
+    Frame.ScaleType = Enum.ScaleType.Slice
+    Frame.SliceCenter = Rect.new(100, 100, 100, 100)
+    Frame.SliceScale = 0.120
+    
+    SliderValuer.Name = "SliderValuer"
+    SliderValuer.Parent = ActualSliding
+    SliderValuer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    SliderValuer.BackgroundTransparency = 1.000
+    SliderValuer.BorderSizePixel = 0
+    SliderValuer.Position = UDim2.new(1, -105, 0, -36)
+    SliderValuer.Size = UDim2.new(0, 101, 0, 15)
+    SliderValuer.ZIndex = 3
+    SliderValuer.Font = Enum.Font.GothamBold
+    SliderValuer.Text = def
+    SliderValuer.TextColor3 = Color3.fromRGB(255, 255, 255)
+    SliderValuer.TextSize = 15.000
+    SliderValuer.TextWrapped = true
+    SliderValuer.TextXAlignment = Enum.TextXAlignment.Right
+    
+    callback(def)
+        
+        local sliding = false
+        local Value;
+        
+        
+        
+        -----Main Code-----
+        
+        ActualSliding.MouseButton1Down:Connect(function()
+        Value = math.floor((((tonumber(max) - tonumber(min)) / ActualSliding.AbsoluteSize.X) * progress.AbsoluteSize.X) + tonumber(min)) or 0
+            sliding = true
+            SliderValuer.Text = Value .."  " .. suffix
+            callback(Value)
+        progress:TweenSize(UDim2.new(0, math.clamp(ms.X - progress.AbsolutePosition.X, 0, ActualSliding.AbsoluteSize.X), 0, ActualSliding.AbsoluteSize.Y),"In","Linear",0.1,true,nil)
+        moveconnection = ms.Move:Connect(function()
+                SliderValuer.Text = Value .."  " .. suffix
+            Value = math.floor((((tonumber(max) - tonumber(min)) / ActualSliding.AbsoluteSize.X) * progress.AbsoluteSize.X) + tonumber(min))
+            progress:TweenSize(UDim2.new(0, math.clamp(ms.X - progress.AbsolutePosition.X, 0, ActualSliding.AbsoluteSize.X), 0, ActualSliding.AbsoluteSize.Y),"In","Linear",0.1,true,nil)
+            callback(Value)
+            end)
+            releaseconnection = uis.InputEnded:Connect(function(Mouse)
+                if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
+                    sliding = false
+                Value = math.floor((((tonumber(max) - tonumber(min)) / ActualSliding.AbsoluteSize.X) * progress.AbsoluteSize.X) + tonumber(min))
+                progress:TweenSize(UDim2.new(0, math.clamp(ms.X - progress.AbsolutePosition.X, 0, ActualSliding.AbsoluteSize.X), 0, ActualSliding.AbsoluteSize.Y),"In","Linear",0.1,true,nil)
+                    SliderValuer.Text = Value .."  " .. suffix
+                    callback(Value)
+                    moveconnection:Disconnect()
+                    releaseconnection:Disconnect()
+                end
+            end)
+        end)
+        
+        
+end
+function Inside:AddCheckBox(Name,callback)
+
+local checkBox = Instance.new("TextLabel")
+local Sample = Instance.new("ImageLabel")
+local Samplee = Instance.new("ImageLabel")
+local checkbox = Instance.new("ImageButton")
+local inner = Instance.new("ImageLabel")
+local checked = Instance.new("ImageLabel")
+local btnCorn = Instance.new("UICorner")
+local PressFrame = Instance.new("TextButton")	
+	
+btnCorn.CornerRadius = UDim.new(0, 10)
+btnCorn.Parent = checkBox
+
+PressFrame.Parent = checkBox
+PressFrame.Name = "Prsfra"
+PressFrame.Size = UDim2.new(1,0,1,0)
+PressFrame.BackgroundTransparency = 1
+PressFrame.AutoButtonColor = false
+PressFrame.Text = ""
+PressFrame.ClipsDescendants = true
+	
+checkBox.Name = "checkBox"
+checkBox.Parent = tab1
+checkBox.BackgroundColor3 = Color3.fromRGB(255,255,255)
+checkBox.BackgroundTransparency = 0.95
+checkBox.BorderSizePixel = 0
+checkBox.Position = UDim2.new(0, 0, 0, 0)
+checkBox.Size = UDim2.new(1, -30, 0, 40)
+checkBox.ZIndex = 3
+checkBox.Font = Enum.Font.GothamBold
+checkBox.Text = "  " .. Name
+checkBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+checkBox.TextSize = 16.000
+checkBox.TextXAlignment = Enum.TextXAlignment.Left
+
+checkbox.Name = "checkbox"
+checkbox.Parent = checkBox
+checkbox.AnchorPoint = Vector2.new(0.5, 0.5)
+checkbox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checkbox.BackgroundTransparency = 1.000
+checkbox.BorderSizePixel = 0
+checkbox.Position = UDim2.new(0.949999988, 0, 0.5, 0)
+checkbox.Size = UDim2.new(0, 24, 0, 24)
+checkbox.Image = "rbxassetid://3570695787"
+checkbox.ImageColor3 = Color3.fromRGB(150, 150, 150)
+checkbox.ScaleType = Enum.ScaleType.Slice
+checkbox.SliceCenter = Rect.new(100, 100, 100, 100)
+checkbox.SliceScale = 0.060
+
+inner.Name = "inner"
+inner.Parent = checkbox
+inner.AnchorPoint = Vector2.new(0.5, 0.5)
+inner.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+inner.BackgroundTransparency = 1.000
+inner.BorderSizePixel = 0
+inner.Position = UDim2.new(0.5, 0, 0.5, 0)
+inner.Size = UDim2.new(0, 20, 0, 20)
+inner.Image = "rbxassetid://3570695787"
+inner.ImageColor3 = Color3.fromRGB(30, 30, 30)
+inner.ScaleType = Enum.ScaleType.Slice
+inner.SliceCenter = Rect.new(100, 100, 100, 100)
+inner.SliceScale = 0.040
+
+checked.Name = "checked"
+checked.Parent = checkbox
+checked.AnchorPoint = Vector2.new(0.5, 0.5)
+checked.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+checked.BackgroundTransparency = 1.000
+checked.BorderSizePixel = 0
+checked.Position = UDim2.new(0.5, 0, 0.5, 0)
+checked.Size = UDim2.new(1, 0, 1, 0)
+checked.ZIndex = 4
+checked.Image = "rbxassetid://3926305904"
+checked.ImageColor3 = Color3.fromRGB(30, 30, 30)
+checked.ImageRectOffset = Vector2.new(312, 4)
+checked.ImageRectSize = Vector2.new(24, 24)
+checked.ImageTransparency = 1.000
+
+Sample.Name = "Sample"
+Sample.Parent = checkbox
+Sample.BackgroundColor3 = Color3.fromRGB(150,0,255)
+Sample.BackgroundTransparency = 1.000
+Sample.ZIndex = 12
+Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
+Sample.ImageColor3 = Color3.fromRGB(150,0,255)
+Sample.ImageTransparency = 0.400
+
+Samplee.Name = "Sample"
+Samplee.Parent = checkbox
+Samplee.AnchorPoint = Vector2.new(0.5,0.5)
+Samplee.BackgroundColor3 = Color3.fromRGB(150,0,255)
+Samplee.BackgroundTransparency = 1.000
+Samplee.ZIndex = 12
+Samplee.Image = "http://www.roblox.com/asset/?id=4560909609"
+Samplee.ImageColor3 = Color3.fromRGB(150,0,255)
+Samplee.ImageTransparency = 0.400
+
+
+	local function color(Object,R,G,B,Delay)
+		local ToTween = Object
+		local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
+		local Tweener = TweenService:Create(ToTween,tweenInfo,{ImageColor3 = Color3.fromRGB(R,G,B)})
+		Tweener:Play()
+end
+
+	local function fade(Object,val,Delay)
+		local ToTween = Object
+		local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
+		local Tweener = TweenService:Create(ToTween,tweenInfo,{ImageTransparency = val})
+		Tweener:Play()
+end
+
+	local Size = UDim2.new(1,15,1,15)
+	function OnClick()
+		local c = Samplee:Clone()
+		c.Parent = checkbox
+		c.Position = UDim2.new(0.5,0,0.5,0)
+		c:TweenSize(Size,"Out","Quad",0.3)
+		fade(c,1,0.6)
+		wait(0.6)
+		c:Destroy()
+	end
+	local btn = PressFrame
+	local toggle = false
+	
+		local timee = 0.6
+	
+	btn.MouseLeave:Connect(function()
+    helding = false
+    timee = 0.6
+	end)
+	
+	
+local helding = false
+	
+	btn.MouseButton1Up:Connect(function()
+    helding = false
+    timee = 0.6
+	end)
+	
+	btn.MouseButton1Down:Connect(function()
+if not helding then
+    helding = true
+    timee = 2
+		local c = Sample:Clone()
+		c.Parent = btn
+		local x, y = (ms.X - c.AbsolutePosition.X), (ms.Y - c.AbsolutePosition.Y)
+		c.Position = UDim2.new(0, x, 0, y)
+		local len, size = 0.6, nil
+		if btn.AbsoluteSize.X >= btn.AbsoluteSize.Y then
+			size = (btn.AbsoluteSize.X * 1)
+		else
+			size = (btn.AbsoluteSize.Y * 0.7)
+		end
+		c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', timee, true, nil)
+		repeat wait() until helding == false
+		c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', timee, true, nil)
+				fade(c,1,timee - 0.1)
+		wait(2) do
+			c:Destroy()
+		end
+		end
+	end)
+	
+PressFrame.MouseButton1Down:Connect(function()
+		if not toggle then
+			toggle = true
+			callback(toggle)
+		color(checkbox,150,0,255,0.3)
+			color(inner,150,0,255,0.2)
+			fade(checked,0,0.3)
+			OnClick()
+		else if toggle then
+				toggle = false
+				callback(toggle)
+			color(checkbox,150,150,150,0.3)
+				color(inner,30,30,30,0.2)
+				fade(checked,1,0.3)
+				OnClick()
+			end
+		end
+end)
+
+checkbox.MouseButton1Down:Connect(function()
+		if not toggle then
+			toggle = true
+			callback(toggle)
+		color(checkbox,150,0,255,0.3)
+			color(inner,150,0,255,0.2)
+			fade(checked,0,0.3)
+			OnClick()
+		else if toggle then
+				toggle = false
+				callback(toggle)
+			color(checkbox,150,150,150,0.3)
+				color(inner,30,30,30,0.2)
+				fade(checked,1,0.3)
+				OnClick()
+			end
+		end
+	end)
+	
+checkbox.MouseEnter:Connect(function()
+	color(checkbox,150,0,255,0.2)
+	end)
+	
+checkbox.MouseLeave:Connect(function()
+		if not toggle then
+		color(checkbox,150,150,150,0.2)
+		else if toggle then
+			color(checkbox,150,0,255,0.2)
+			end
+			end
+	end)
+end
+
+    return Inside
+end
+return Tabs
+end
+return Library
