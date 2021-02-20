@@ -341,7 +341,7 @@ btncorner.Parent = containers
 
 tabbtn.Name = "tabbtn"
 tabbtn.Parent = tabsList
-tabbtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+tabbtn.BackgroundColor3 = Color3.fromRGB(40,40,40)
 tabbtn.BackgroundTransparency = 0
 tabbtn.BorderSizePixel = 0
 tabbtn.ClipsDescendants = true
@@ -350,7 +350,7 @@ tabbtn.Size = UDim2.new(1, -10, 0, 40)
 tabbtn.ZIndex = 2
 tabbtn.AutoButtonColor = false
 tabbtn.Font = Enum.Font.GothamBold
-tabbtn.TextColor3 = Color3.fromRGB(40,40,40)
+tabbtn.TextColor3 = Color3.fromRGB(200,200,200)
 tabbtn.TextSize = 17.000
 tabbtn.Text = name
 
@@ -383,8 +383,9 @@ local helding = false
 	    UIPageLayout:JumpToIndex(tab)
 	    toggled.Value = true
 	    for i,v in next,tabsList:GetChildren() do
-	    if v:FindFirstChild("Value") and Value.Value == false then
+	    if v:FindFirstChild("Toggled") and Toggled.Value == false then
 	    Colour(v,Color3.fromRGB(40,40,40),0.3)
+	    Colour(tabbtn,Color3.fromRGB(150,0,255),0.3)
 	    end
 	    end
 if not helding then
