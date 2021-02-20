@@ -805,3 +805,33 @@ end
 return Tabs
 end
 return Library
+
+--[[ Example
+local Library = loadstring(game:HttpGet("https://github.com/slf0Dev/SB2-gui/raw/main/SLF%20ui%20library%202"))()
+
+local dick = Library:CreateMain("gui","test","Semicolon")
+
+local tab1 = dick:AddTab("tab1")
+
+local tab2 = dick:AddTab("tab2")
+
+local hhah = tab1:AddButton("nofitication",function()
+    local nofi = Library:Nofitication("lol","fuck my ass",1)
+end)
+
+local hhah = tab1:AddButton("button 2",function()
+
+    end)
+
+local btn2 = tab2:AddButton("button 3 ",function()
+    print"pressed"
+end)
+
+local slid = tab1:AddSlider("Slider",0,100,50,"",function(Value)
+    print(Value)
+end)
+
+local dddddd = tab1:AddCheckBox("Checkbox",function(state)
+    print(state)
+    end)
+--]]
