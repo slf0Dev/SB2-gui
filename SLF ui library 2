@@ -9,7 +9,7 @@ end
 local function colour(Object,col,Delay)
     local ToTween = Object
     local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.Out,0,false,0)
-    local Tweener = TweenService:Create(ToTween,tweenInfo,{ImageColor3 = col})
+    local Tweener = TweenService:Create(ToTween,tweenInfo,{BackgroundColor3 = col})
     Tweener:Play()
 end
 local ms = game.Players.LocalPlayer:GetMouse()
