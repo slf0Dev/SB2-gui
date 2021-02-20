@@ -696,6 +696,11 @@ Samplee.Image = "http://www.roblox.com/asset/?id=4560909609"
 Samplee.ImageColor3 = Color3.fromRGB(150,0,255)
 Samplee.ImageTransparency = 0.400
 
+if toggled.Value == true then
+checked.ImageTransparency = 0
+inner.ImageColor3 = Color3.fromRGB(150,0,255)
+checkbox.ImageColor3 = Color3.fromRGB(150,0,255)
+end
 
 	local function color(Object,R,G,B,Delay)
 		local ToTween = Object
