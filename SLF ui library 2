@@ -393,7 +393,6 @@ if not helding then
 		end
 		end
 	end)
-	return tabbtn
 function Inside:AddButton(Name,callback)
 local btn = Instance.new("TextButton")
 local Sample = Instance.new("ImageLabel")
@@ -816,9 +815,9 @@ checkbox.MouseLeave:Connect(function()
 	return checkBox
 end
 
-    return Inside
+    return Inside,tabbtn
 end
-return Tabs
+return Tabs,topb
 end
 return Library
 
