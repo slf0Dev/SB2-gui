@@ -393,7 +393,7 @@ if not helding then
 		end
 		end
 	end)
-	
+	return tabbtn
 function Inside:AddButton(Name,callback)
 local btn = Instance.new("TextButton")
 local Sample = Instance.new("ImageLabel")
@@ -470,6 +470,7 @@ if not helding then
 		end
 		end
 	end)
+	return btn;
 end
 function Inside:AddSlider(Name,min,max,def,suffix,callback)
 
@@ -595,7 +596,7 @@ tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,50)
             end)
         end)
         
-        
+        return slider
 end
 function Inside:AddCheckBox(Name,callback)
 tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,55)
@@ -812,6 +813,7 @@ checkbox.MouseLeave:Connect(function()
 			end
 			end
 	end)
+	return checkBox
 end
 
     return Inside
