@@ -180,10 +180,10 @@ Main.Active = true
 		if key.KeyCode == Enum.KeyCode[keyh] then
 			if toggle then
 				toggle = false
-				Main:TweenSize(UDim2.new(0, 740, 0, 0),"In","Back",0.1,true,nil)
+				Main:TweenSize(UDim2.new(0, 740, 0, 0),"Out","Back",0.3,true,nil)
 			else if not toggle then
 					toggle = true
-					Main:TweenSize(UDim2.new(0, 740, 0, 459),"Out","Back",0.1,true,nil)
+					Main:TweenSize(UDim2.new(0, 740, 0, 459),"Out","Back",0.3,true,nil)
 				end
 			end
 		end
