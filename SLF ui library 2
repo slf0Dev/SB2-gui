@@ -788,6 +788,16 @@ checkbox.MouseButton1Down:Connect(function()
 callback(toggle)		
 			end
 			end)
+			
+			PressFrame.MouseButton1Down:Connect(function()
+		if not toggle then
+			toggle = true
+			callback(toggle)
+			else
+			toggle = false
+callback(toggle)		
+			end
+			end)
 
 checkbox.MouseButton1Down:Connect(function()
 		if not toggle then
@@ -813,7 +823,7 @@ checkbox.MouseEnter:Connect(function()
 	
 checkbox.MouseLeave:Connect(function()
 		if not toggle then
-		color(checkbox,150,150,150,0.2)
+		color(checkbox,130,130,130,0.2)
 		else if toggle then
 			color(checkbox,150,0,255,0.2)
 			end
