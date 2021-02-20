@@ -763,7 +763,7 @@ if not helding then
 		end
 	end)
 	
-PressFrame.MouseButton1Down:Connect(function()
+PressFrame.MouseButton1Click:Connect(function()
 		if not toggle then
 			toggle = true
 		color(checkbox,150,0,255,0.3)
@@ -782,11 +782,12 @@ end)
 
 
 			
-			PressFrame.MouseButton1Down:Connect(function()
+			PressFrame.MouseButton1Click:Connect(function()
 		if not toggle then
 			callback(toggle)
-			else
+			else if toggle then
 callback(toggle)		
+			end
 			end
 			end)
 
