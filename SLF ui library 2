@@ -385,7 +385,7 @@ local btn = Instance.new("TextButton")
 local Sample = Instance.new("ImageLabel")
 local btnCorn = Instance.new("UICorner")
 
-tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,60)
+tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,45)
 
 btn.Name = "btn"
 btn.Parent = tab1
@@ -459,7 +459,7 @@ if not helding then
 end
 function Inside:AddSlider(Name,min,max,def,suffix,callback)
 
-tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,60)
+tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,50)
     local slider = Instance.new("Frame")
     local SliderNamer = Instance.new("TextLabel")
     local ActualSliding = Instance.new("ImageButton")
@@ -584,7 +584,7 @@ tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,60)
         
 end
 function Inside:AddCheckBox(Name,callback)
-
+tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,45)
 local checkBox = Instance.new("TextLabel")
 local Sample = Instance.new("ImageLabel")
 local Samplee = Instance.new("ImageLabel")
