@@ -831,6 +831,236 @@ Label.TextSize = 16.000
 Label.TextXAlignment = Enum.TextXAlignment.Center
 return Label
 end
+function Inside:AddDropdown(placeholder)
+	local DrpIns = {}
+local dropdown = Instance.new("Frame")
+local TextBox = Instance.new("TextBox")
+local drpcorn = Instance.new("UICorner")
+local plus = Instance.new("TextButton")
+local plus_2 = Instance.new("TextLabel")
+local minus = Instance.new("TextLabel")
+local droped = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+
+
+dropdown.Name = "dropdown"
+dropdown.Parent = tab1
+dropdown.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+dropdown.ClipsDescendants = true
+dropdown.Position = UDim2.new(0.0477326959, 0, 0.24333334, 0)
+dropdown.Size = UDim2.new(1, -40, 0, 200)
+
+TextBox.Parent = dropdown
+TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.BackgroundTransparency = 1.000
+TextBox.BorderSizePixel = 0
+TextBox.ClipsDescendants = true
+TextBox.Position = UDim2.new(0, 20, 0, 0)
+TextBox.Size = UDim2.new(0.923482835, -40, 0, 50)
+TextBox.ZIndex = 2
+TextBox.Font = Enum.Font.GothamBold
+TextBox.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
+TextBox.PlaceholderText = placeholder
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextSize = 17.000
+TextBox.TextXAlignment = Enum.TextXAlignment.Left
+
+drpcorn.CornerRadius = UDim.new(0, 10)
+drpcorn.Name = "drpcorn"
+drpcorn.Parent = dropdown
+
+plus.Name = "plus"
+plus.Parent = dropdown
+plus.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+plus.BackgroundTransparency = 1.000
+plus.BorderSizePixel = 0
+plus.Position = UDim2.new(0.868073881, 0, 0, 0)
+plus.Size = UDim2.new(0, 50, 0, 50)
+plus.Font = Enum.Font.SourceSans
+plus.Text = ""
+plus.TextColor3 = Color3.fromRGB(255, 255, 255)
+plus.TextSize = 14.000
+
+plus_2.Name = "plus"
+plus_2.Parent = plus
+plus_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+plus_2.BackgroundTransparency = 1.000
+plus_2.BorderSizePixel = 0
+plus_2.Size = UDim2.new(0, 50, 0, 50)
+plus_2.Font = Enum.Font.SourceSans
+plus_2.Text = "+"
+plus_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+plus_2.TextSize = 40.000
+
+minus.Name = "minus"
+minus.Parent = plus_2
+minus.AnchorPoint = Vector2.new(0.5, 0.5)
+minus.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+minus.BackgroundTransparency = 1.000
+minus.BorderSizePixel = 0
+minus.Position = UDim2.new(0.5, 0, 0.504999995, 0)
+minus.Size = UDim2.new(1, 0, 1, 0)
+minus.Font = Enum.Font.SourceSans
+minus.LineHeight = 1.100
+minus.Text = "―"
+minus.TextColor3 = Color3.fromRGB(150, 0, 255)
+minus.TextSize = 30.000
+minus.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+minus.TextTransparency = 1.000
+
+droped.Name = "droped"
+droped.Parent = dropdown
+droped.Active = true
+droped.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+droped.BackgroundTransparency = 1.000
+droped.BorderSizePixel = 0
+droped.Position = UDim2.new(-0.00200000009, 0, 0, 50)
+droped.Size = UDim2.new(1, 0, 0, 150)
+droped.CanvasSize = UDim2.new(0, 0, 0, 100)
+droped.ScrollBarThickness = 5
+
+UIListLayout.Parent = droped
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 5)
+
+TextBox.FocusLost:Connect(function()
+		for i,v in next,droped:GetChildren() do
+			if v.Name ~= "UIListLayout" then
+				if v.Text:find(TextBox.Text) then
+					v.Visible = true
+				else
+					v.Visible = false
+				end
+			end
+		end
+	end)
+
+
+
+	local OpPos , EndPos = UDim2.new(1,-40,0,200) , UDim2.new(1,-40,0,50)
+	
+	local function Rotate(Object,col,Delay)
+		local ToTween = Object
+		local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
+		local Tweener = TweenService:Create(ToTween,tweenInfo,{Rotation = col})
+		Tweener:Play()
+	end
+	
+	local function UniTween(Object,col,Delay)
+		local ToTween = Object
+		local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
+		local Tweener = TweenService:Create(ToTween,tweenInfo,{TextTransparency = col})
+		Tweener:Play()
+	end
+	
+	local function TCol(Object,col,Delay)
+		local ToTween = Object
+		local tweenInfo = TweenInfo.new(Delay,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,0,false,0)
+		local Tweener = TweenService:Create(ToTween,tweenInfo,{PlaceholderColor3 = col})
+		Tweener:Play()
+	end
+	
+	local toggle = false
+	plus.MouseButton1Click:Connect(function()
+		if not toggle then
+			toggle = true
+		dropdown:TweenSize(OpPos,"Out","Back",0.3)
+			Rotate(plus,180,0.3)
+		UniTween(plus_2,1,0.3)
+			UniTween(minus,0,0.3)
+			TCol(TextBox,Color3.fromRGB(150,0,255),0.3)
+		else
+			toggle = false
+		        dropdown:TweenSize(EndPos,"Out","Back",0.3)
+			Rotate(plus,0,0.3)
+			UniTween(plus_2,0,0.3)
+			UniTween(minus,1,0.3)
+			TCol(TextBox,Color3.fromRGB(178, 178, 178),0.3)
+		end
+	end)
+	function DrpIns:AddChoice(Name)
+		local btn = Instance.new("TextButton")
+		local Sample = Instance.new("ImageLabel")
+		local btnCorn = Instance.new("UICorner")
+
+		tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,55)
+
+		btn.Name = "btn"
+		btn.Parent = droped
+		btn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		btn.BackgroundTransparency = 0.97
+		btn.BorderSizePixel = 0
+		btn.ClipsDescendants = true
+		btn.Position = UDim2.new(0.233890221, 0, 0.35426715, 0)
+		btn.Size = UDim2.new(1, -30, 0, 40)
+		btn.ZIndex = 2
+		btn.AutoButtonColor = false
+		btn.Font = Enum.Font.GothamBold
+		btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+		btn.TextSize = 17.000
+		btn.Text = Name
+
+		btnCorn.CornerRadius = UDim.new(0, 10)
+		btnCorn.Parent = btn
+
+
+		Sample.Name = "Sample"
+		Sample.Parent = tabbtn
+		Sample.BackgroundColor3 = Color3.fromRGB(150,0,255)
+		Sample.BackgroundTransparency = 1.000
+		Sample.ZIndex = 12
+		Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
+		Sample.ImageColor3 = Color3.fromRGB(150,0,255)
+		Sample.ImageTransparency = 0.400
+
+		local timee = 0.6
+
+		btn.MouseLeave:Connect(function()
+			helding = false
+			timee = 0.6
+		end)
+
+		btn.MouseButton1Click:Connect(function()
+			callback(btn.Text)
+		end)
+
+		local helding = false
+
+		btn.MouseButton1Up:Connect(function()
+			helding = false
+			timee = 0.6
+		end)
+
+		btn.MouseButton1Down:Connect(function()
+			if not helding then
+				helding = true
+				timee = 2
+				local c = Sample:Clone()
+				c.Parent = btn
+				local x, y = (ms.X - c.AbsolutePosition.X), (ms.Y - c.AbsolutePosition.Y)
+				c.Position = UDim2.new(0, x, 0, y)
+				local len, size = 0.6, nil
+				if btn.AbsoluteSize.X >= btn.AbsoluteSize.Y then
+					size = (btn.AbsoluteSize.X * 1)
+				else
+					size = (btn.AbsoluteSize.Y * 0.7)
+				end
+				c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', timee, true, nil)
+				repeat wait() until helding == false
+				c:TweenSizeAndPosition(UDim2.new(0, size, 0, size), UDim2.new(0.5, (-size / 2), 0.5, (-size / 2)), 'Out', 'Quad', timee, true, nil)
+				fade(c,1,timee - 0.1)
+				wait(2) do
+					c:Destroy()
+				end
+			end
+		end)
+	end
+return dropdown
+end
+	
+
 
     return Inside
 end
