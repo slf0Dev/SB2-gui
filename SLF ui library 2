@@ -827,6 +827,7 @@ Label.Text = Еуче
 Label.TextColor3 = Color3.fromRGB(255, 255, 255)
 Label.TextSize = 16.000
 Label.TextXAlignment = Enum.TextXAlignment.Center
+return Label
 end
 
     return Inside
