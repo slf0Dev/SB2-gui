@@ -980,7 +980,7 @@ TextBox.FocusLost:Connect(function()
 			TCol(TextBox,Color3.fromRGB(178, 178, 178),0.3)
 		end
 	end)
-	function DrpIns:AddChoice(Name)
+	function DrpIns:AddChoice(Name,callback)
 		local btn = Instance.new("TextButton")
 		local Sample = Instance.new("ImageLabel")
 		local btnCorn = Instance.new("UICorner")
