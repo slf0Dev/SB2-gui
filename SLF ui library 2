@@ -101,7 +101,6 @@ popupCon:Destroy()
 end
 end
 end
-Library:Nofitication("UI Library","UI library Made by SALFIN#0986",5)
 function Library:CreateMain(name,gamenamee,keyh)
 local library = Instance.new("ScreenGui")
 local topb = Instance.new("Frame")
@@ -848,7 +847,7 @@ dropdown.Parent = tab1
 dropdown.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 dropdown.ClipsDescendants = true
 dropdown.Position = UDim2.new(0.0477326959, 0, 0.24333334, 0)
-dropdown.Size = UDim2.new(1, -40, 0, 200)
+dropdown.Size = UDim2.new(1, -30, 0, 50)
 
 TextBox.Parent = dropdown
 TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -856,7 +855,7 @@ TextBox.BackgroundTransparency = 1.000
 TextBox.BorderSizePixel = 0
 TextBox.ClipsDescendants = true
 TextBox.Position = UDim2.new(0, 20, 0, 0)
-TextBox.Size = UDim2.new(0.923482835, -40, 0, 50)
+TextBox.Size = UDim2.new(1, -50, 0, 50)
 TextBox.ZIndex = 2
 TextBox.Font = Enum.Font.GothamBold
 TextBox.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
@@ -875,7 +874,7 @@ plus.Parent = dropdown
 plus.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 plus.BackgroundTransparency = 1.000
 plus.BorderSizePixel = 0
-plus.Position = UDim2.new(0.868073881, 0, 0, 0)
+plus.Position = UDim2.new(1, -50, 0, 0)
 plus.Size = UDim2.new(0, 50, 0, 50)
 plus.Font = Enum.Font.SourceSans
 plus.Text = ""
@@ -917,7 +916,7 @@ droped.BackgroundTransparency = 1.000
 droped.BorderSizePixel = 0
 droped.Position = UDim2.new(-0.00200000009, 0, 0, 50)
 droped.Size = UDim2.new(1, 0, 0, 150)
-droped.CanvasSize = UDim2.new(0, 0, 0, 100)
+droped.CanvasSize = UDim2.new(0, 0, 0, -60)
 droped.ScrollBarThickness = 5
 
 UIListLayout.Parent = droped
@@ -939,7 +938,7 @@ TextBox.FocusLost:Connect(function()
 
 
 
-	local OpPos , EndPos = UDim2.new(1,-40,0,200) , UDim2.new(1,-40,0,50)
+	local OpPos , EndPos = UDim2.new(1,-30,0,200) , UDim2.new(1,-30,0,50)
 	
 	local function Rotate(Object,col,Delay)
 		local ToTween = Object
@@ -985,7 +984,7 @@ TextBox.FocusLost:Connect(function()
 		local Sample = Instance.new("ImageLabel")
 		local btnCorn = Instance.new("UICorner")
 
-		tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,55)
+		droped.CanvasSize = droped.CanvasSize + UDim2.new(0,0,0,48)
 
 		btn.Name = "btn"
 		btn.Parent = droped
@@ -1024,6 +1023,13 @@ TextBox.FocusLost:Connect(function()
 
 		btn.MouseButton1Click:Connect(function()
 			callback(btn.Text)
+					        dropdown:TweenSize(EndPos,"Out","Back",0.3)
+			Rotate(plus,0,0.3)
+			UniTween(plus_2,0,0.3)
+			UniTween(minus,1,0.3)
+			TCol(TextBox,Color3.fromRGB(178, 178, 178),0.3)
+			toggle = false
+			TextBox.Text = btn.Text
 		end)
 
 		local helding = false
@@ -1057,7 +1063,7 @@ TextBox.FocusLost:Connect(function()
 			end
 		end)
 	end
-return DrpIns
+	return DrpIns
 end
 	
 
