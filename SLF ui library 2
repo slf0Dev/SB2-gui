@@ -813,6 +813,7 @@ PressFrame.MouseEnter:Connect(function()
 	return checkBox
 end
 function Inside:AddLabel(Text)
+tab1.CanvasSize = tab1.CanvasSize + UDim2.new(0,0,0,50)
 local Label = Instance.new("TextLabel")
 
 Label.Name = "Label"
