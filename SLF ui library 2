@@ -984,7 +984,7 @@ TextBox.FocusLost:Connect(function()
 		local Sample = Instance.new("ImageLabel")
 		local btnCorn = Instance.new("UICorner")
 
-		droped.CanvasSize = droped.CanvasSize + UDim2.new(0,0,0,57)
+		droped.CanvasSize = droped.CanvasSize + UDim2.new(0,0,0.28,0)
 
 		btn.Name = "btn"
 		btn.Parent = droped
