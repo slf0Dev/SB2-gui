@@ -915,7 +915,7 @@ droped.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 droped.BackgroundTransparency = 1.000
 droped.BorderSizePixel = 0
 droped.Position = UDim2.new(-0.00200000009, 0, 0, 50)
-droped.Size = UDim2.new(1, 0, 0, 150)
+droped.Size = UDim2.new(1, 0, 0, 149)
 droped.CanvasSize = UDim2.new(0, 0, 0, -60)
 droped.ScrollBarThickness = 5
 
@@ -984,7 +984,7 @@ TextBox.FocusLost:Connect(function()
 		local Sample = Instance.new("ImageLabel")
 		local btnCorn = Instance.new("UICorner")
 
-		droped.CanvasSize = droped.CanvasSize + UDim2.new(0,0,0.28,0)
+		droped.CanvasSize = droped.CanvasSize + UDim2.new(0,0,0.31,0)
 
 		btn.Name = "btn"
 		btn.Parent = droped
