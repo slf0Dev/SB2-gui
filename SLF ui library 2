@@ -94,11 +94,10 @@ lol2.TextXAlignment = Enum.TextXAlignment.Left
 local ToGo = UDim2.new(0.1,0,0,0)
 local ToBack = UDim2.new(1,0,0,0)
 popup:TweenPosition(ToGo,"Out","Quad",0.4)
-wait(delay) do
+wait(delay)
 popup:TweenPosition(ToBack,"In","Quad",0.4)
 wait(0.4) do
 popupCon:Destroy()
-end
 end
 end
 function Library:CreateMain(name,gamenamee,keyh)
@@ -127,7 +126,7 @@ local dragging
 local dragInput
 local dragStart
 local startPos
-local off = Vector3.new(5,5,0)
+local off = Vector3.new(0,0,0)
 local function update(input)
 	local delta = input.Position + off - dragStart
 	gui:TweenPosition(UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y),"Out","Quart",0.15,true,nil)
@@ -176,10 +175,11 @@ topb.Active = true
 
 Main.Name = "Main"
 Main.Parent = topb
+Main.AnchorPoint = Vector2.new(0.5, 0.5)
 Main.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
 Main.BorderSizePixel = 0
 Main.ClipsDescendants = true
-Main.Position = UDim2.new(0,0,0,0)
+Main.Position = UDim2.new(0.5,0,1,0)
 Main.Size = UDim2.new(0, 740, 0, 459)
 Main.Active = true
 	local input = game:GetService("UserInputService")
